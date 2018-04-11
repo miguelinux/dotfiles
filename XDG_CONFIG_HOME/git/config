@@ -1,0 +1,18 @@
+[user]
+	name = Miguel Bernal Marin
+[push]
+	default = simple
+[core]
+	editor = vimgit
+[alias]
+	fixline = log -1 --abbrev=12 --format='Fixes: %h (\"%s\")'
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lf = log --pretty=full
+	toKernel = send-email --annotate --cc="linux-kernel@vger.kernel.org"
+[hub]
+	protocol = https
+[color]
+	ui = auto
+[include]
+	path = personal-gitconfig
