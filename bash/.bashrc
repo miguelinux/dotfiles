@@ -8,8 +8,8 @@ if [ -f /etc/profile ]; then
 fi
 
 # load global shell setup
-if [ -d ${HOME}/.shrc/ ]; then
-  for s in ${HOME}/.shrc/* ; do
+if [ -d ${HOME}/.config/shrc/ ]; then
+  for s in ${HOME}/.config/shrc/* ; do
     source $s
   done
   unset s

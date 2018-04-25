@@ -1,0 +1,26 @@
+#!/bin/bash
+
+INTERNAL_DOMAIN=internal-domain.com
+
+# export proxy vars if available
+if [ -f ${HOME}/.config/shrc/proxies ]; then
+	    source ${HOME}/.config/shrc/proxies
+fi
+
+case $1 in
+       # list internal git servers here that you do not want to use
+       # the proxy with, separated by a pipe character '|' as below:
+       #internalgit1.domain.com|internalgit2.domain.com)
+  ${INTERNAL_DOMAIN})
+        METHOD=""
+	#/usr/bin/nc $METHOD $*
+	connect-proxy  $*
+        ;;
+  *)
+        #METHOD="--proxy-type socks5 --proxy ${PROXY}:${PORT}"
+	connect-proxy -S ${PROXY}:${PORT} $*
+        ;;
+esac
+
+#/usr/bin/nc $METHOD $*
+
