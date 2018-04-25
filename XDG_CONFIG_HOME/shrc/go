@@ -1,3 +1,4 @@
+# ex: ts=8 sw=4 sts=4 et filetype=sh
 
 export GOPATH=${HOME}/go
 export PATH=${PATH}:${GOPATH}/bin
