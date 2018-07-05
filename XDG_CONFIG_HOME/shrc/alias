@@ -1,0 +1,4 @@
+# ex: ts=8 sw=4 sts=4 et filetype=sh
+
+# Open a new pane in tmux with vim
+alias tvim="tmux splitw -t 0 vim"
