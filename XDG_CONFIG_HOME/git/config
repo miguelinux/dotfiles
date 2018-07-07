@@ -10,6 +10,7 @@
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lf = log --pretty=full
 	toKernel = send-email --annotate --cc="linux-kernel@vger.kernel.org"
+	toCLR = send-email --to=\"Clear Linux ML <dev@lists.clearlinux.org>\" --annotate --suppress-cc=all
 [hub]
 	protocol = https
 [color]
