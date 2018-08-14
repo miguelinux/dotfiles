@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Synergy Client
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/synergyc --no-daemon --debug NOTE --name Workstation --no-tray -f %i
+
+[Install]
+WantedBy=default.target
+
