@@ -3,7 +3,7 @@
 [push]
 	default = simple
 [core]
-	editor = vimgit
+	editor = vim-git
 [alias]
 	fixline = log -1 --abbrev=12 --format='Fixes: %h (\"%s\")'
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
