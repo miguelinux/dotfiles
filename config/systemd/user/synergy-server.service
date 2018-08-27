@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Synergy Server
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/synergys -f --no-tray --debug NOTE --name synserver --address :24800
+
+[Install]
+WantedBy=default.target
+

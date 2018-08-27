@@ -1,0 +1,24 @@
+# ex: ts=8 sw=4 sts=4 et filetype=sh
+
+dime ()
+{
+    local TEXT="${1}"
+    local CHAT_ID_FILE=${2:-chat_id}
+    local TOKEN_FILE=${3:-token}
+    local RET_JS=${4:-/dev/null}
+    local API_URL=https://api.telegram.org/bot
+    local TOKEN_URL
+
+    if [ -d "${HOME}/.config/telegram" ]
+    then
+        source ${HOME}/.config/telegram/${TOKEN_FILE}
+        source ${HOME}/.config/telegram/${CHAT_ID_FILE}
+
+        TOKEN_URL=${API_URL}${TOKEN}
+
+        curl --get --silent \
+            --data-urlencode "chat_id=${CHAT_ID}" \
+            --data-urlencode "text=${TEXT}" \
+            $TOKEN_URL/sendMessage > ${RET_JS}
+    fi
+}
