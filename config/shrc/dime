@@ -22,3 +22,10 @@ dime ()
             $TOKEN_URL/sendMessage > ${RET_JS}
     fi
 }
+
+
+dime_myip ()
+{
+    local my_ip=$(ip a show | grep  dynamic | cut -f 6 -d " ")
+    dime ${my_ip} avisos
+}
