@@ -188,6 +188,9 @@ else
 endif
 
 
+if strftime("%H") > 21 || strftime("%H") < 9
+  colorscheme torte
+endif
 
 
 
