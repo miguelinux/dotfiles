@@ -115,6 +115,7 @@ endif
 " Set text with 80
 set tw=80
 
+highlight BadWhitespace ctermbg=red guibg=red
 
 "" http://kernelnewbies.org/FirstKernelPatch
 filetype plugin indent on
@@ -131,6 +132,17 @@ au BufRead /tmp/*/*.patch setlocal spell spelllang=en
 au BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
 au BufRead *.rst setlocal spell spelllang=en
 au BufRead *.md  setlocal spell spelllang=en
+
+" Java
+au BufRead,BufNewFile *.java set tabstop=4
+au BufRead,BufNewFile *.java set softtabstop=4
+au BufRead,BufNewFile *.java set shiftwidth=4
+au BufRead,BufNewFile *.java set expandtab
+au BufRead,BufNewFile *.java set autoindent
+au BufRead,BufNewFile *.java match BadWhitespace /^\t\+/
+au BufRead,BufNewFile *.java match BadWhitespace /\s\+$/
+au         BufNewFile *.java set fileformat=unix
+au BufRead,BufNewFile *.java let b:comment_leader = '//'
 
 " syntax match Tab /\t/
 " hi Tab gui=underline guifg=blue ctermbg=blue 
@@ -187,11 +199,16 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-
-if strftime("%H") > 19 || strftime("%H") < 9
+" Dark color at night
+if strftime("%H") > 17 || strftime("%H") < 9
   colorscheme torte
 endif
 
+" swapfiles to /tmp and .
+silent !mkdir -p /tmp/.vim-cache
+set directory=/tmp/.vim-cache,.
 
-
+" backup files to ~/.cache and .
+silent !mkdir -p ~/.cache/vim/
+set backupdir=~/.cache/vim,.
 
