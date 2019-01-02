@@ -245,7 +245,6 @@ EXEC 00;38;5;2
 .torrent         00;38;5;3
 .xml             00;38;5;3
 .spec            00;38;5;3
-*Makefile        00;38;5;3
 *Rakefile        00;38;5;3
 *Dockerfile      00;38;5;3
 *build.xml       00;38;5;3
@@ -273,5 +272,6 @@ EXEC 00;38;5;2
 .sql             00;38;5;3
 .csv             00;38;5;3
 
-
 .patch           00;38;5;5
+*Makefile        00;38;5;5
+*Kconfig         00;38;5;5
