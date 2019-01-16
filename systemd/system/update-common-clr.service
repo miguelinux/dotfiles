@@ -1,0 +1,13 @@
+[Unit]
+Description=Update Clear Linux packages
+
+[Service]
+User=miguel
+WorkingDirectory=/home/clearlinux
+ExecStartPre=/usr/bin/make pull -j 4
+ExecStart=/usr/bin/make clone -j 4
+
+[Install]
+WantedBy=multi-user.target
+
+

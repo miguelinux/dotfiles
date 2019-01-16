@@ -1,0 +1,8 @@
+[Unit]
+Description=Timer to update Clear Linux common tooling
+
+[Timer]
+OnCalendar=*-*-* 04,12:40:00
+
+[Install]
+WantedBy=timers.target
