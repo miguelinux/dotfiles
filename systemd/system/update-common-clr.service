@@ -2,6 +2,7 @@
 Description=Update Clear Linux packages
 
 [Service]
+Type=oneshot
 User=miguel
 WorkingDirectory=/home/clearlinux
 ExecStartPre=/usr/bin/make pull -j 4
