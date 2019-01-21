@@ -5,15 +5,6 @@ set message_cachedir = ~/.cache/mutt/example/bodies
 # comment this out when not used in gmail
 unset record
 
-# RECEIVE OPTIONS
-set imap_check_subscribed
-# Allow Mutt to open new imap connection automatically.
-unset imap_passive
-# Keep IMAP connection alive by polling intermittently (time in seconds).
-set imap_keepalive = 900
-# How often to check for new mail (time in seconds).
-set mail_check     = 1800
-
 set signature="~/.mutt/signature-example"
 # load account aliases
 source ~/.mutt/aliases-example

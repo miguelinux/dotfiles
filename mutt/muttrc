@@ -27,6 +27,15 @@ source '~/.mutt/private.muttrc'
 # This is symlink to the default muttrc
 source '~/.mutt/default.muttrc'
 
+# RECEIVE OPTIONS
+set imap_check_subscribed
+# Allow Mutt to open new imap connection automatically.
+unset imap_passive
+# Keep IMAP connection alive by polling intermittently (time in seconds).
+set imap_keepalive = 900
+# How often to check for new mail (time in seconds).
+set mail_check     = 1800
+
 # https://dev.mutt.org/trac/wiki/MuttGuide/Aliases
 set alias_file    = ~/.mutt/aliases
 set sort_alias    = alias
