@@ -1,4 +1,8 @@
 [begin] (Miguel)
    [exec] (Xterm) {xterm} <>
    [exec] (Firefox) {firefox} <>
+   [exec] (Chrome) {google-chrome} <>
+   [submenu] (Android) {}
+         [exec] (Studio) {studio.sh} <>
+   [end]
 [end]
