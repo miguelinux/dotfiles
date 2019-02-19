@@ -1,0 +1,4 @@
+[begin] (Miguel)
+   [exec] (Xterm) {xterm} <>
+   [exec] (Firefox) {firefox} <>
+[end]
