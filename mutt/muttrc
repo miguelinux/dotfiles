@@ -101,3 +101,10 @@ bind pager <down> next-line
 
 # Fetch email from imap
 bind index G imap-fetch-mail
+
+# Bind to I key in index view:
+macro index I  "<search>~F\n"                     "Search for next important"
+
+# Bint to I key in pager:
+macro pager I  "<exit><search>~F\n<display-message>" "Jump to next important"
+
