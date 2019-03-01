@@ -1,0 +1,6 @@
+[sendemail]
+	smtpserver = smtp.gmail.com
+	smtpuser = YOUR_EMAIL
+	smtpencryption = tls
+	smtppass = YOUR_OAUTH2_PASS
+	smtpserverport = 587
