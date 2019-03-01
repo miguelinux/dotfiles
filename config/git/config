@@ -15,6 +15,13 @@
 	protocol = https
 [color]
 	ui = auto
+[sendemail]
+	# http://felipec.wordpress.com/2009/10/25/git-send-email-tricks/
+	chainreplyto = false
+	# DPDK http://dpdk.org/dev
+	suppressfrom = true
+	confirm = always
+	envelopesender = auto
 [include]
 	path = personal-gitconfig
 	path = proxies
