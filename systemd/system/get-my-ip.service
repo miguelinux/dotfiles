@@ -1,0 +1,9 @@
+[Unit]
+Description=Send a message of your IP to Telegram
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/gce-get-external-ip
+
+[Install]
+WantedBy=multi-user.target
