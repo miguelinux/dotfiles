@@ -5,6 +5,8 @@ After=network.traget
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/gce-get-external-ip
+ExecStop=/usr/local/bin/gce-get-external-ip-down
+RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target

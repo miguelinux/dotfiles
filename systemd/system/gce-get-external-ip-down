@@ -1,0 +1,41 @@
+#!/bin/bash
+# -*- mode: shell-script; indent-tabs-mode: nil; sh-basic-offset: 4; -*-
+# ex: ts=8 sw=4 sts=4 et filetype=sh
+
+telegram ()
+{
+    local TEXT="${1}"
+    local CHAT_ID_FILE=${2:-chat_id}
+    local TOKEN_FILE=${3:-token}
+    local RET_JS=${4:-/dev/null}
+    local API_URL=https://api.telegram.org/bot
+    local TOKEN_URL
+
+    if [ -d "/etc/telegram" ]
+    then
+        if [ ! -f  /etc/telegram/${TOKEN_FILE} ]
+        then
+            return
+        fi
+        if [ ! -f  /etc/telegram/${CHAT_ID_FILE} ]
+        then
+            return
+        fi
+        source /etc/telegram/${TOKEN_FILE}
+        source /etc/telegram/${CHAT_ID_FILE}
+
+        TOKEN_URL=${API_URL}${TOKEN}
+
+        curl --get --silent \
+            --data-urlencode "chat_id=${CHAT_ID}" \
+            --data-urlencode "text=${TEXT}" \
+            $TOKEN_URL/sendMessage > ${RET_JS}
+    fi
+}
+
+GCE_IP=$(curl -H "Metadata-Flavor: Google" \
+    http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip)
+
+GCE_UT=$(uptime -p)
+
+telegram "Your - OFF IP is: ${GCE_IP} - ${GCE_UT}" gce_chat gce_bot
