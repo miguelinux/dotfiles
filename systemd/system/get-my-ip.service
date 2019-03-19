@@ -1,5 +1,6 @@
 [Unit]
 Description=Send a message of your IP to Telegram
+After=network.traget
 
 [Service]
 Type=oneshot
