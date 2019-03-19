@@ -1,0 +1,5 @@
+[Match]
+Name=enp2s0
+
+[Network]
+Address=192.168.0.15/24
