@@ -5,7 +5,7 @@ After=network.traget
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/gce-get-external-ip
-ExecStop=/usr/local/bin/gce-get-external-ip-down
+ExecStop=/usr/local/bin/gce-get-external-ip STOP
 RemainAfterExit=yes
 
 [Install]
