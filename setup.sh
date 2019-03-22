@@ -4,6 +4,7 @@ mkdir -p ${HOME}/.config/git
 mkdir -p ${HOME}/.config/shrc
 mkdir -p ${HOME}/.config/systemd/user
 mkdir -p ${HOME}/.mutt
+mkdir -p ${HOME}/.cache/mutt
 mkdir -p ${HOME}/.fluxbox
 mkdir -p ${HOME}/.vim/colors
 stow -t ${HOME}/.config config
