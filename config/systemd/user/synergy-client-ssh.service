@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Synergy Client through a ssh thunnel
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/synergyc --no-daemon --debug NOTE --name Workstation --no-tray -f localhost
+
+[Install]
+WantedBy=default.target
+

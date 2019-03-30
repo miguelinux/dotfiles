@@ -1,0 +1,12 @@
+[Unit]
+Description=Run SSH Tunnerl for Synergy Client
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ssh -NT -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -L 24800:localhost:24800 %i
+RestartSec=8
+Restart=always
+
+[Install]
+WantedBy=default.target
+
