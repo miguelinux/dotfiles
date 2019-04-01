@@ -12,8 +12,8 @@ export GIT_PS1_SHOWCOLORHINTS=1
 
 #export GIT_PROXY_COMMAND=$HOME/bin/git-proxy
 
-source $HOME/bin/git-completion.bash
-source $HOME/bin/git-prompt.sh
+source $HOME/.local/bin/git-completion.bash
+source $HOME/.local/bin/git-prompt.sh
 
 ##"PS1=[\u@\h \W]\$" # old
 # \[\e[38;5;39m\]\u\[\e[0m\]@\[\e[38;5;208m\]\H \[\e[38;5;39m\]\w \[\e[38;5;39m\]$ \[\e[0;0m\]
