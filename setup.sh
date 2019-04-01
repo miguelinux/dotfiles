@@ -15,4 +15,3 @@ stow -t ${HOME} tmux
 stow -t ${HOME} dircolors
 stow -t ${HOME} bash
 stow -t ${HOME}/.local/bin bin
- bin
