@@ -2,6 +2,7 @@
 # -*- mode: shell-script; indent-tabs-mode: nil; sh-basic-offset: 4; -*-
 # ex: ts=8 sw=4 sts=4 et filetype=sh
 
+
 telegram ()
 {
     local TEXT="${1}"
@@ -36,4 +37,13 @@ telegram ()
 GCE_IP=$(curl -H "Metadata-Flavor: Google" \
     http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip)
 
-telegram "Your IP is: ${GCE_IP}" gce_chat gce_bot
+GCE_UT=$(uptime -p)
+GCE_HOST=$(hostname)
+
+
+if [[ $1 == 'stop' ]]
+then
+	telegram "Shutting down ${GCE_HOST} : ${GCE_UT}" gce_chat gce_bot
+else
+	telegram "${GCE_HOST} IP is: ${GCE_IP}" gce_chat gce_bot
+fi
