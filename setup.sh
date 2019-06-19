@@ -7,6 +7,7 @@ mkdir -p ${HOME}/.mutt
 mkdir -p ${HOME}/.cache/mutt
 mkdir -p ${HOME}/.fluxbox
 mkdir -p ${HOME}/.vim/colors
+mkdir -p ${HOME}/.vim/templates
 stow -t ${HOME}/.config config
 stow -t ${HOME}/.mutt mutt
 stow -t ${HOME}/.vim vim
