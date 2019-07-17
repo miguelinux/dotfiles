@@ -10,3 +10,8 @@ my_cscope ()
 
     echo "CSCOPE_DB=${mydir}/cscope.out; export CSCOPE_DB" > ${HOME}/.config/shrc/last-cscope
 }
+
+function g()
+{
+    gvim --servername GVIM$1 --remote-tab-silent "$2"
+}
