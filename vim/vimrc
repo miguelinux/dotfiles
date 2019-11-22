@@ -215,8 +215,8 @@ if strftime("%H") > 17 || strftime("%H") < 9
 endif
 
 " swapfiles to /tmp and .
-silent !mkdir -m 700 -p /tmp/.vim-cache-$UID
-set directory=/tmp/.vim-cache-$UID,.
+silent !mkdir -m 0700 -p /tmp/.vim-cache
+set directory=/tmp/.vim-cache,.
 
 " backup files to ~/.cache and .
 silent !mkdir -p ~/.cache/vim/
