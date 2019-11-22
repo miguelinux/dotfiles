@@ -127,8 +127,8 @@ EXEC 00;38;5;2
 .bat 00;38;5;2
 # Or if you want to colorize scripts even if they do not have the
 # executable bit actually set.
-.sh  00;38;5;2
-.csh 00;38;5;2
+#.sh  00;38;5;2
+#.csh 00;38;5;2
 
  # archives or compressed (bright red)
 .tar 00;38;5;1
