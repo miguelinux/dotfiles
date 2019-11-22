@@ -3,6 +3,9 @@
     "tz": "America/Los_Angeles"
   },
   {
+    "tz": "UTC"
+  },
+  {
     "tz": "Europe/London"
   },
   {

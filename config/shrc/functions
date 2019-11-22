@@ -5,6 +5,7 @@ my_cscope ()
     local mydir=$(mktemp -d)
     find $PWD -name "*.[chS]" > ${mydir}/cscope.files
     cscope -b -q -i ${mydir}/cscope.files -f ${mydir}/cscope.out
+    cat ${mydir}/cscope.files | ctags -a -o ${mydir}/tags
     CSCOPE_DB=${mydir}/cscope.out
     export CSCOPE_DB
 
