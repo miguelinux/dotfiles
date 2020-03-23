@@ -1,3 +1,7 @@
 # ex: ts=8 sw=4 sts=4 et filetype=sh
 
-export PATH=${PATH}:${HOME}/.local/bin
+PATH=${PATH}:${HOME}/.local/bin
+
+PYCHARM_JDK=/usr/lib/jvm/java-1.8.0-openjdk
+
+export PATH PYCHARM_JDK
