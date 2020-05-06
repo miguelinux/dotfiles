@@ -204,10 +204,10 @@ endif
 
 if has("autocmd")
   augroup templates
-    autocmd BufNewFile *.java 0r ~/.vim/templates/skeleton.java
-    autocmd BufNewFile *.cpp  0r ~/.vim/templates/skeleton.c
     autocmd BufNewFile *.c    0r ~/.vim/templates/skeleton.c
+    autocmd BufNewFile *.cpp  0r ~/.vim/templates/skeleton.c
     autocmd BufNewFile *.h    0r ~/.vim/templates/skeleton.h
+    autocmd BufNewFile *.java 0r ~/.vim/templates/skeleton.java
     autocmd BufNewFile *.sh   0r ~/.vim/templates/skeleton.sh
   augroup END
 endif
