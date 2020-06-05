@@ -25,3 +25,5 @@
 [include]
 	path = personal-gitconfig
 	path = proxies
+[pull]
+	rebase = false
