@@ -26,6 +26,6 @@ dime ()
 
 dime_myip ()
 {
-    local my_ip=$(ip a show | grep  dynamic | cut -f 6 -d " ")
-    dime ${my_ip} avisos
+    local my_ip=$(ip a show | grep  inet\  | cut -f 6 -d " ")
+    dime "${my_ip}" avisos
 }
