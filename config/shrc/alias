@@ -2,3 +2,6 @@
 
 # Open a new pane in tmux with vim
 alias tvim="tmux splitw -t 0 vim"
+
+# Alias for the ssh
+alias ssha="ssh $ssh_args"
