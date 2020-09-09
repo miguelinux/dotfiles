@@ -3,12 +3,12 @@
 # Open a new pane in tmux with vim
 alias tvim="tmux splitw -t 0 vim"
 
-ssh_args=" -o StrictHostKeyChecking=no
-           -o UserKnownHostsFile=/dev/null
-           -o LogLevel=Error
-           -o ConnectTimeout=15
-           -o IdentitiesOnly=yes
-           -o AddressFamily=inet "
+ssh_args=" -o StrictHostKeyChecking=no "
+ssh_args+="-o UserKnownHostsFile=/dev/null "
+ssh_args+="-o LogLevel=Error "
+ssh_args+="-o ConnectTimeout=15 "
+ssh_args+="-o IdentitiesOnly=yes "
+ssh_args+="-o AddressFamily=inet "
 
 # Alias for the ssh
 alias ssha="ssh $ssh_args"
