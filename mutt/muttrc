@@ -1,3 +1,4 @@
+# vim: filetype=muttrc
 # https://wiki.archlinux.org/index.php/mutt
 #source "gpg2 -dq $HOME/.mutt/accounts.gpg |"
 
