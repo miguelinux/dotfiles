@@ -8,6 +8,7 @@
 	default = simple
 [core]
 	editor = vim-git
+	autocrlf = input
 [alias]
 	fixline = log -1 --abbrev=12 --format='Fixes: %h (\"%s\")'
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
