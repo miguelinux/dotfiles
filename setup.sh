@@ -3,6 +3,27 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+my-stow() {
+    if stow --version 2&> /dev/null
+    then
+        stow $@
+    else
+        echo "No stow package"
+        exit
+        #TODO Dec 28 2020
+        echo "---- > $2 "
+        for f in $3/*
+        do
+            if [ -f $f ]
+            then
+                echo "f  $f"
+            else
+                echo "o  $f"
+            fi
+        done
+    fi
+}
+
 find -name \*~ -exec rm {} \;
 mkdir -p ${HOME}/.local/bin
 mkdir -p ${HOME}/.config/git
@@ -13,11 +34,12 @@ mkdir -p ${HOME}/.cache/mutt
 mkdir -p ${HOME}/.fluxbox
 mkdir -p ${HOME}/.vim/colors
 mkdir -p ${HOME}/.vim/templates
-stow -t ${HOME}/.config config
-stow -t ${HOME}/.mutt mutt
-stow -t ${HOME}/.vim vim
-stow -t ${HOME}/.fluxbox fluxbox
-stow -t ${HOME} tmux
-stow -t ${HOME} dircolors
-stow -t ${HOME} bash
-stow -t ${HOME}/.local/bin bin
+
+my-stow -t ${HOME}/.config config
+my-stow -t ${HOME}/.mutt mutt
+my-stow -t ${HOME}/.vim vim
+my-stow -t ${HOME}/.fluxbox fluxbox
+my-stow -t ${HOME} tmux
+my-stow -t ${HOME} dircolors
+my-stow -t ${HOME} bash
+my-stow -t ${HOME}/.local/bin bin
