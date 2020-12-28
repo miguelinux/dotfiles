@@ -17,3 +17,5 @@ ssh_args+="-o AddressFamily=inet "
 alias ssha="ssh $ssh_args"
 
 export ssh_args
+
+alias t="todo.sh"
