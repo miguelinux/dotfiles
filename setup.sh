@@ -40,6 +40,5 @@ my-stow -t ${HOME}/.mutt mutt
 my-stow -t ${HOME}/.vim vim
 my-stow -t ${HOME}/.fluxbox fluxbox
 my-stow -t ${HOME} tmux
-my-stow -t ${HOME} dircolors
-my-stow -t ${HOME} bash
 my-stow -t ${HOME}/.local/bin bin
+my-stow -t ${HOME} varios
