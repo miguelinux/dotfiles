@@ -1,0 +1,35 @@
+section: screens
+	synserver:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none 
+		switchCornerSize = 0
+	Workstation:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none 
+		switchCornerSize = 0
+end
+
+section: links
+	synserver:
+		right = Workstation
+	Workstation:
+		left = synserver
+end
+
+section: options
+	relativeMouseMoves = false
+	screenSaverSync = true
+	win32KeepForeground = false
+	disableLockToScreen = false
+	clipboardSharing = true
+	clipboardSharingSize = 3072
+	switchCorners = none 
+	switchCornerSize = 0
+end
+
