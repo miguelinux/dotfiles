@@ -8,6 +8,11 @@
 SS=mobl3
 SSTOP=0
 
+if test -f ${HOME}/.config/teclado.sh.conf
+then
+    source ${HOME}/.config/teclado.sh.conf
+fi
+
 while [ -n "${1}" ]
 do
     case "$1" in
