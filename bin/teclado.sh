@@ -16,7 +16,7 @@ fi
 while [ -n "${1}" ]
 do
     case "$1" in
-        -d|--debbug)
+        -d|--debug)
             set -x
         ;;
         -e|--error)
