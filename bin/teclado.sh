@@ -5,16 +5,29 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 # Synergy Server
-SS=$2
+SS=mobl3
+SSTOP=0
 
-if [ "$1" != "off" ]
-then
-    SS=$1
-fi
+while [ -n "${1}" ]
+do
+    case "$1" in
+        -d|--debbug)
+            set -x
+        ;;
+        -e|--error)
+            set -e
+        ;;
+        off)
+            SSTOP=1
+        ;;
+        *)
+            SS=$1
+        ;;
+    esac
+    shift
+done
 
-test -n "${SS}" || SS=mobl3
-
-if [ "$1" = "off" ]
+if [ ${SSTOP} -eq 1 ]
 then
     systemctl --user stop synergy-client-ssh.service
     systemctl --user stop synergy-tunnel@${SS}
@@ -22,12 +35,11 @@ then
     exit
 fi
 
-if nmcli -t device | grep --quiet OfficeW
+if ssh -o ConnectTimeout=2 ${SS} echo > /dev/null
 then
-    if ssh ${SS} echo > /dev/null
-    then
-        systemctl --user start synergy-tunnel@${SS}
-        sleep 1 
-        systemctl --user start synergy-client-ssh.service
-    fi
+    systemctl --user start synergy-tunnel@${SS}
+    sleep 1
+    systemctl --user start synergy-client-ssh.service
+else
+    echo "No connection to ${SS}"
 fi
