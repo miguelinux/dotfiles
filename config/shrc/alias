@@ -19,3 +19,4 @@ alias ssha="ssh $ssh_args"
 export ssh_args
 
 alias t="todo.sh"
+alias tsvg="termtosvg -t window_frame_js"
