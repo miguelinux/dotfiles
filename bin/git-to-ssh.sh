@@ -6,6 +6,12 @@
 
 GITREMOTE=origin
 
+if [ ! -d .git ]
+then
+    echo "No git repo found"
+    exit 1
+fi
+
 while [ -n "${1}" ]
 do
     case "$1" in
