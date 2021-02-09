@@ -24,6 +24,9 @@ done
 if test -f ${HOME}/.config/my-home.sh.conf
 then
     source ${HOME}/.config/my-home.sh.conf
-    sudo cryptsetup open ${CDEV} ${CNAME}
-    sudo mount ${CMOUNT}
+    if ! mount | grep --quiet ${CMOUNT}
+    then
+        sudo cryptsetup open ${CDEV} ${CNAME}
+        sudo mount ${CMOUNT}
+    fi
 fi
