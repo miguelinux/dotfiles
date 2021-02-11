@@ -28,7 +28,7 @@ do
     shift
 done
 
-GITHOST=$(git remote -v | grep origin | grep fetch | cut -f 3 -d /)
-GITREPO=$(git remote -v | grep origin | grep fetch | cut -f 3- -d / | cut -f 1 -d " " | cut -f 2- -d /)
+GITHOST=$(git remote -v | grep ${GITREMOTE} | grep fetch | cut -f 3 -d /)
+GITREPO=$(git remote -v | grep ${GITREMOTE} | grep fetch | cut -f 3- -d / | cut -f 1 -d " " | cut -f 2- -d /)
 
 git remote set-url --push ${GITREMOTE} git@${GITHOST}:${GITREPO}
