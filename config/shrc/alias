@@ -19,5 +19,5 @@ alias ssha="ssh $ssh_args"
 export ssh_args
 
 alias t="todo.sh"
-alias tq="teams --quit; rm -f $HOME/.config/autostart/teams.desktop"
+alias tq="teams --quit; killall teams; rm -f $HOME/.config/autostart/teams.desktop"
 alias tsvg="termtosvg -t window_frame_js"
