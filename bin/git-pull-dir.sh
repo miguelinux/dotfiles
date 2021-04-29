@@ -5,12 +5,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 VQUIET="--quiet"
-
-if [ $# -eq 0 ]
-then
-    echo "Git pull on all"
-    exec $0 *
-fi
+VDONE=0
 
 while [ -n "${1}" ]
 do
@@ -28,8 +23,16 @@ do
             if [ -d ${1}/.git ]
             then
                 git -C $1 pull ${VQUIET} 
+                VDONE=1
             fi
         ;;
     esac
     shift
 done
+
+if [ ${VDONE} -eq 0 ]
+then
+    echo "Git pull on all"
+    find -name .git -exec git -C {}/.. pull ${VQUIET} \;
+fi
+
