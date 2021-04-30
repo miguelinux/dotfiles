@@ -7,4 +7,12 @@ PATH=${PATH}:${HOME}/.local/bin
 
 PYCHARM_JDK=/usr/lib/jvm/java-1.8.0-openjdk
 
-export PATH PYCHARM_JDK
+if [ "x${DISPLAY}" != "x" ]; then
+    EDITOR="gvim -f"
+    VISUAL="gvim -f"
+else
+    EDITOR="vim "
+    VISUAL="vim "
+fi
+
+export PATH PYCHARM_JDK EDITOR VISUAL
