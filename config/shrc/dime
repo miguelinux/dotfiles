@@ -25,7 +25,7 @@ dime ()
             $TOKEN_URL/sendMessage > ${RET_JS}
 
         #curl --silent \
-        #    --form chat_id=-1001463500445 \
+        #    --form chat_id=${CHAT_ID}\
         #    --form caption="el mensaje" \
         #    --form photo=@/tmp/h.jpg \
         #    $TOKEN_URL/sendPhoto > ${RET_JS}
