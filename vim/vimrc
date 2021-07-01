@@ -100,10 +100,14 @@ endif
 " Miguelinux
 
 if has('gui_running')
-	"set guifont=Monospace:h14
+	"set guifont=Monospace h14
 	"if has('gui_win32')
 		"set guifont=Monospace:h14
 	"endif
+endif
+
+if has('gui_gtk3')
+	set guifont=Monospace\ Regular\ 14
 endif
 
 " Size of a hard tabstop
