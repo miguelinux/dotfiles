@@ -17,5 +17,10 @@ my_cscope ()
 
 function g()
 {
-    gvim --servername GVIM$1 --remote-tab-silent "$2"
+    if test -e $1
+    then
+        gvim --servername GVIM --remote-tab-silent "$1"
+    else
+        gvim --servername GVIM$1 --remote-tab-silent "$2"
+    fi
 }
