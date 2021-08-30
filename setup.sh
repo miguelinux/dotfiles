@@ -27,6 +27,7 @@ my-stow() {
 find -name \*~ -exec rm {} \;
 mkdir -p ${HOME}/.local/bin
 mkdir -p ${HOME}/.config/git
+mkdir -p ${HOME}/.config/i3
 mkdir -p ${HOME}/.config/shrc
 mkdir -p ${HOME}/.config/systemd/user
 mkdir -p ${HOME}/.mutt
