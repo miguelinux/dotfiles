@@ -21,12 +21,18 @@ do
     shift
 done
 
+SU_CMD="sudo"
+if [ ${UID} -eq 0 ]
+then
+    SU_CMD=""
+fi
+
 if test -f ${HOME}/.config/my-home.sh.conf
 then
     source ${HOME}/.config/my-home.sh.conf
     if ! mount | grep --quiet ${CMOUNT}
     then
-        sudo cryptsetup open ${CDEV} ${CNAME}
-        sudo mount ${CMOUNT}
+        ${SU_CMD} cryptsetup open ${CDEV} ${CNAME}
+        ${SU_CMD} mount ${CMOUNT}
     fi
 fi
