@@ -136,6 +136,7 @@ au BufRead /tmp/*/*.patch setlocal spell spelllang=en
 au BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
 au BufRead *.rst setlocal spell spelllang=en
 au BufRead *.md  setlocal spell spelllang=en
+au BufRead *.tex set tw=76
 au BufRead *.tex setlocal spell spelllang=es
 
 " Java
