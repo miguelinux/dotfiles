@@ -14,6 +14,11 @@ kid="YOUR-KEY"
  
 # Directory that stores encrypted key for each service 
 dir="$HOME/.2fa"
+
+if [ -e ${HOME}/.config/2fa/config ]
+then
+  source ${HOME}/.config/2fa/config
+fi
  
 # Now build CLI args
 s="$1"
