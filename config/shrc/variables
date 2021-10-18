@@ -5,17 +5,17 @@
 
 PATH=${PATH}:${HOME}/.local/bin
 
-if test -d /usr/lib/jvm/java-1.8.0-openjdk
-then
-    PYCHARM_JDK=/usr/lib/jvm/java-1.8.0-openjdk
-    export PYCHARM_JDK
-fi
+#if test -d /usr/lib/jvm/java-1.8.0-openjdk
+#then
+#    PYCHARM_JDK=/usr/lib/jvm/java-1.8.0-openjdk
+#    export PYCHARM_JDK
+#fi
 
-if test -d /usr/lib/jvm/java-11-openjdk
-then
-    PYCHARM_JDK=/usr/lib/jvm/java-11-openjdk
-    export PYCHARM_JDK
-fi
+#if test -d /usr/lib/jvm/java-11-openjdk
+#then
+#    PYCHARM_JDK=/usr/lib/jvm/java-11-openjdk
+#    export PYCHARM_JDK
+#fi
 
 if [ "x${DISPLAY}" != "x" ]; then
     EDITOR="gvim -f"
