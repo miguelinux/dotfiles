@@ -57,6 +57,7 @@ show_help() {
     echo ""
     echo "-d, --debug              Set debug mode in bash, i.e. set -x"
     echo "-e, --error              Set error mode in bash, i.e. set -e"
+    echo "-w, --wait <TIME>        Wait TIME to continue, i.e. sleep TIME"
     echo "-i, --chat-id <CHAT_ID>  Set the CHAT_ID"
     echo "-t, --token <TOKEN>      Set the TOKEN"
     echo "-r, --ret-js <RET_JS>    Set the return JS file; default: /dev/null"
@@ -149,6 +150,10 @@ parse_args ()
             ;;
             -e|--error)
                 set -e
+            ;;
+            -w|--wait)
+                shift
+                sleep $1
             ;;
             hostname)
                 TEXT="${TEXT} $(hostname)"$'\n'

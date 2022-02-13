@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/dime.sh hostname ip
+ExecStart=/usr/local/bin/dime.sh "Booting:" hostname ip
 
 [Install]
 WantedBy=multi-user.target
