@@ -32,6 +32,11 @@ kg="${k}.gpg"
  
 # Get totp secret for given service
 totp=$($_gpg2 --quiet -u "${kid}" -r "${uid}" --decrypt "$kg")
+
+if [ -z "${totp}" ]
+then
+  exit 1
+fi
  
 # Generate 2FA totp code and display on screen
 echo "Your code for $s is ..."
