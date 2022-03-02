@@ -19,7 +19,7 @@ my-stow() {
             then
                 my-stow -t $2/$f $3/$f
             else
-                ln -f -s $(realpath --relative-to=$HOME $3/$f) $2/$f
+                ln -f -s $(realpath --relative-to=$2 $3/$f) $2/$f
             fi
         done
     fi
