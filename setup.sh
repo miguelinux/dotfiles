@@ -8,17 +8,18 @@ my-stow() {
     then
         stow $@
     else
-        echo "No stow package"
-        exit
-        #TODO Dec 28 2020
-        echo "---- > $2 "
-        for f in $3/*
+        mkdir -p $2
+        for f in $(ls -a $3)
         do
-            if [ -f $f ]
+            if [ ${f: -1} = "." ]
             then
-                echo "f  $f"
+                continue
+            fi
+            if [ -d $3/$f ]
+            then
+                my-stow -t $2/$f $3/$f
             else
-                echo "o  $f"
+                ln -f -s $(realpath --relative-to=$HOME $3/$f) $2/$f
             fi
         done
     fi
