@@ -27,7 +27,6 @@ error ()
 {
     >&2 echo -e "${*}"
     echo "${*}" | systemd-cat --identifier=${IDENTIFIER} --priority=err
-    telegram "${*}"
 }
 
 die ()
