@@ -130,6 +130,21 @@ set softtabstop=8
 set shiftwidth=8
 set noexpandtab
 
+"""" Line number setup
+set number
+""""    set line number hybrid
+set number relativenumber
+""""    configure the hybrid for
+""""      * absolute number on insert mode
+""""      * relative for command mode / buffer not focused
+"""" snippet stolen from https://jeffkreeftmeijer.com/vim-number/
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+
 au BufRead /tmp/mutt-* set tw=72
 au BufRead /tmp/mutt-* setlocal spell spelllang=en_us
 au BufRead /tmp/*/*.patch setlocal spell spelllang=en
