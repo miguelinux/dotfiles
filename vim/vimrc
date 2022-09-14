@@ -99,12 +99,12 @@ endif
 
 " Miguelinux
 
-if has('gui_running')
+"if has('gui_running')
 	"set guifont=Monospace h14
 	"if has('gui_win32')
 		"set guifont=Monospace:h14
 	"endif
-endif
+"endif
 
 if has('gui_gtk3')
 	set guifont=Monospace\ Regular\ 14
@@ -131,18 +131,18 @@ set shiftwidth=8
 set noexpandtab
 
 """" Line number setup
-set number
+""set number
 """"    set line number hybrid
-set number relativenumber
+""set number relativenumber
 """"    configure the hybrid for
 """"      * absolute number on insert mode
 """"      * relative for command mode / buffer not focused
 """" snippet stolen from https://jeffkreeftmeijer.com/vim-number/
-augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
+""augroup numbertoggle
+""    autocmd!
+""    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+""    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+""augroup END
 
 
 au BufRead /tmp/mutt-* set tw=72
