@@ -57,7 +57,11 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+#bindsym $mod+l focus up
+
+# Lock the screen
+bindsym $mod+l exec --no-startup-id loginctl lock-session
+
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
