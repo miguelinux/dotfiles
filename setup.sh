@@ -26,14 +26,15 @@ my-stow() {
 }
 
 find -name \*~ -exec rm {} \;
-mkdir -m 700 -p ${HOME}/.local/bin
+mkdir -m 700 -p ${HOME}/.cache/mutt
 mkdir -m 700 -p ${HOME}/.config/git
 mkdir -m 700 -p ${HOME}/.config/i3
 mkdir -m 700 -p ${HOME}/.config/shrc
 mkdir -m 700 -p ${HOME}/.config/systemd/user
-mkdir -m 700 -p ${HOME}/.mutt
-mkdir -m 700 -p ${HOME}/.cache/mutt
+mkdir -m 700 -p ${HOME}/.config/todo
 mkdir -m 700 -p ${HOME}/.fluxbox
+mkdir -m 700 -p ${HOME}/.local/bin
+mkdir -m 700 -p ${HOME}/.mutt
 mkdir -m 700 -p ${HOME}/.vim/colors
 mkdir -m 700 -p ${HOME}/.vim/templates
 
