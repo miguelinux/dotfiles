@@ -1,1 +1,3 @@
 dnf list installed | grep -v @updates | grep -v @fedora
+dnf list installed | grep -v @updates | grep -v @fedora | cut -f 2- -d @ | sort | uniq
+
