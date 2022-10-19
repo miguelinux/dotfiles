@@ -1,0 +1,1 @@
+dnf list installed | grep -v @updates | grep -v @fedora
