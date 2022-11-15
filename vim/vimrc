@@ -231,6 +231,7 @@ if has("autocmd")
     autocmd BufNewFile *.java 0r ~/.vim/templates/skeleton.java
     autocmd BufNewFile *.py   0r ~/.vim/templates/skeleton.py
     autocmd BufNewFile *.sh   0r ~/.vim/templates/skeleton.sh
+    autocmd BufNewFile *.tex  0r ~/.vim/templates/skeleton.tex
   augroup END
 endif
 
