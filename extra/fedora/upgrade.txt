@@ -1,3 +1,15 @@
-dnf list installed | grep -v @updates | grep -v @fedora
-dnf list installed | grep -v @updates | grep -v @fedora | cut -f 2- -d @ | sort | uniq
+sudo dnf list installed | grep -v @updates | grep -v @fedora
+sudo dnf list installed | grep -v @updates | grep -v @fedora | cut -f 2- -d @ | sort | uniq
 
+
+sudo dnf upgrade --refresh
+sudo dnf install dnf-plugin-system-upgrade
+sudo dnf system-upgrade download --releasever=37
+sudo dnf system-upgrade reboot
+
+
+sudo dnf install rpmconf
+sudo rpmconf -a
+
+sudo dnf install remove-retired-packages
+remove-retired-packages
