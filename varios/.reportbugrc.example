@@ -1,0 +1,26 @@
+# reportbug preferences file
+# character encoding: UTF-8
+# Version of reportbug this preferences file was written by
+reportbug_version "11.6.0"
+# default operating mode: one of: novice, standard, advanced, expert
+mode novice
+# default user interface
+ui text
+# offline disables querying information over the network
+#offline
+# name and email setting (if non-default)
+realname "Miguel Bernal Marin"
+email "miguel.bernal.marin@gmail.com"
+# Send all outgoing mail via the following host
+smtphost "smtp.gmail.com:587"
+smtpuser "miguel.bernal.marin@gmail.com"
+#smtppasswd "my password here"
+# Require STARTTLS for the SMTP host connection
+smtptls
+# If nothing else works, remove the # at the beginning
+# of the following three lines:
+#no-cc
+#list-cc-me
+#smtphost reportbug.debian.org
+# You can add other settings after this line.  See
+# /etc/reportbug.conf for a full listing of options.
