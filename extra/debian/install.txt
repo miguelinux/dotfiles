@@ -1,4 +1,4 @@
-apt install git stow tmux vim rsync connect-proxy
+apt install git stow tmux vim rsync connect-proxy curl
 
 apt install build-essential fakeroot devscripts libncurses-dev
 apt build-dep linux                                                                                                                
