@@ -1,0 +1,2 @@
+# Copy to /etc/sudoers.d by your own risk
+miguel ALL=(ALL) NOPASSWD: ALL
