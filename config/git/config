@@ -16,6 +16,8 @@
 	lf = log --pretty=full
 	toKernel = send-email --annotate --cc="linux-kernel@vger.kernel.org"
 	toCLR = send-email --to=\"Clear Linux ML <dev@lists.clearlinux.org>\" --annotate --suppress-cc=all
+	format-serie = format-patch --zero-commit --no-numbered --abbrev=12 --signature=\"Serie\"
+	format-debian = format-patch --no-numbered --signature=\"Debian backport\"
 [hub]
 	protocol = https
 [color]
