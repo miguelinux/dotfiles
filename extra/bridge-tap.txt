@@ -1,0 +1,5 @@
+sudo nmcli connection add type bridge con-name bridge0 ifname br0
+sudo nmcli connection modify bridge0 bridge.mac-address 00:AA:00:11:22:33
+sudo nmcli connection modify bridge0 bridge.stp no
+sudo nmcli connection add type tun ifname tap0 con-name tap0 slave-type bridge master bridge0 mode tap owner $(id -u)
+
