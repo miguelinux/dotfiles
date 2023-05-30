@@ -11,17 +11,17 @@ esac
 
 # Use global profile when available
 if [ -f /usr/share/defaults/etc/profile ]; then
-	. /usr/share/defaults/etc/profile
+	source /usr/share/defaults/etc/profile
 fi
 
 # allow admin overrides
 if [ -f /etc/profile ]; then
-	. /etc/profile
+	source /etc/profile
 fi
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+	source /etc/bashrc
 fi
 
 # load global shell setup
@@ -57,7 +57,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    source ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -65,9 +65,9 @@ fi
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
+    source /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+    source /etc/bash_completion
   fi
 fi
 
@@ -75,7 +75,7 @@ fi
 if [ -d ~/.bashrc.d ]; then
 	for rc in ~/.bashrc.d/*; do
 		if [ -f "$rc" ]; then
-			. "$rc"
+			source "$rc"
 		fi
 	done
 fi
