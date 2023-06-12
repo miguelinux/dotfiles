@@ -24,3 +24,11 @@ function g()
         gvim --servername GVIM$1 --remote-tab-silent "$2"
     fi
 }
+
+function my-ssh-agent()
+{
+    if [ -z "${SSH_AGENT_PID}" ]
+    then
+        eval "$(ssh-agent -s)"
+    fi
+}
