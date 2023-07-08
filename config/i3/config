@@ -184,3 +184,9 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# Moving workspaces between screens
+bindsym $mod+p move workspace to output right
+
+workspace 1 output LVDS
+workspace 2 output VGA-0

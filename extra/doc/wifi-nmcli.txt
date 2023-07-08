@@ -1,0 +1,10 @@
+nmcli dev status
+nmcli radio wifi
+nmcli radio wifi on
+nmcli dev wifi list
+sudo nmcli dev wifi connect network-ssid
+sudo nmcli dev wifi connect network-ssid password "network-password"
+sudo nmcli --ask dev wifi connect network-ssid
+nmcli con show
+nmcli con down ssid/uuid
+nmcli con up ssid/uuid

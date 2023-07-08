@@ -1,0 +1,3 @@
+install mesa-va-drivers
+remove mesa-va-drivers-freeworld 
+midori
