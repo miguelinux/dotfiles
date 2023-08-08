@@ -109,3 +109,11 @@ macro index I  "<search>~F\n"                     "Search for next important"
 # Bint to I key in pager:
 macro pager I  "<exit><search>~F\n<display-message>" "Jump to next important"
 
+# > binds the key "B" to take the current message and pass it through
+# > to b4 to apply the whole patch series to the tree in the localdirectory.
+# macro index B |'b4 am -t -o - | git am -s'\n
+#
+# > This pastes a message to clipboard with xsel.
+# macro index,pager B |'xsel --clipboard'
+# > Then in my git repo I run:
+# > xsel -ob | b4 am -t -o - | git am -s
