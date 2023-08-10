@@ -107,7 +107,8 @@ endif
 "endif
 
 if has('gui_gtk3')
-	set guifont=Monospace\ Regular\ 14
+  set guifont=Monospace\ Regular\ 14
+  colorscheme torte
 endif
 
 " Size of a hard tabstop
