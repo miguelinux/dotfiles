@@ -1,0 +1,12 @@
+#!/bin/bash
+# -*- mode: shell-script; indent-tabs-mode: nil; sh-basic-offset: 4; -*-
+# ex: ts=8 sw=4 sts=4 et filetype=sh
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+if [ -n "$(git -C $TODO_DIR status --porcelain)" ]
+then
+    git -C "$TODO_DIR" add --all
+    git -C "$TODO_DIR" commit -m "auto-update"
+    git -C "$TODO_DIR" push
+fi
