@@ -14,3 +14,4 @@ fi
 PS_USER_END=" \[\e[38;5;39m\]\\\$ \[\e[0;0m\]"
 #export PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 export PROMPT_COMMAND='__git_ps1 "$PS_USER" "$PS_USER_END"'
+#VIRTUAL_ENV_PROMPT
