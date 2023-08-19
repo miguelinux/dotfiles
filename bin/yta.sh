@@ -12,6 +12,5 @@ youtube-viewer \
     --audio \
     --novideo \
     --resolution=audio \
-    --shuffle \
     --audio-quality=best \
     $*
