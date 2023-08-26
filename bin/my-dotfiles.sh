@@ -11,7 +11,7 @@ function update()
     repo_path=${repo_path_full%/*/*}
     git -C "$repo_path" pull
     #if ! git -C "${repo_path}" diff-index --cached --quiet HEAD --
-    if [ -n "$(git -C \"$repo_path\" status --porcelain)" ]
+    if [ -n "$(git -C ${repo_path} status --porcelain)" ]
     then
         git -C "${repo_path}" add --all
         git -C "${repo_path}" commit -m "auto-update"
