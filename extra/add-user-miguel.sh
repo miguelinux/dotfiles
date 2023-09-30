@@ -13,17 +13,27 @@ then
     exit 1
 fi
 
-useradd \
+if [ ! -d /home/miguel ]
+then
+    useradd \
 	--uid 1980 \
 	--shell /usr/bin/bash \
 	--create-home \
 	--home-dir /home/miguel \
 	--comment "Miguel Bernal Marin" \
 	miguel
+fi
+
+#	--groups cdrom,dip,plugdev,lpadmin,lxd,familia,sambashare  \
 
 if [ -d /etc/sudoers.d ]
 then
     echo "miguel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/015_miguel-nopasswd
 fi
 
-#	--groups cdrom,dip,plugdev,lpadmin,lxd,familia,sambashare  \
+if [ -d /home/miguel -a ! -d /home/miguel/.local/git/dotfiles ]
+then
+    mkdir -p /home/miguel/.local/git
+    git -C /home/miguel/.local/git clone https://github.com/miguelinux/dotfiles.git
+fi
+
