@@ -20,6 +20,7 @@ then
 	--shell /usr/bin/bash \
 	--create-home \
 	--home-dir /home/miguel \
+        --groups users  \
 	--comment "Miguel Bernal Marin" \
 	miguel
 fi
