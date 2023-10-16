@@ -1,0 +1,17 @@
+# ex: ts=8 sw=4 sts=4 et filetype=sshconfig
+
+Host aws
+    Hostname  w.x.y.z
+    User      ubuntu
+    #User      ec2-user
+    #User      admin
+    IdentityFile ~/.ssh/my.key
+    PreferredAuthentications publickey
+    StrictHostKeyChecking  no
+    UserKnownHostsFile     /dev/null
+    LogLevel               error
+    ConnectTimeout         15
+    IdentitiesOnly         yes
+    AddressFamily          inet
+    #ProxyCommand  connect-proxy -a none -S proxy.com:1080  %h %p
+

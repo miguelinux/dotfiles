@@ -46,4 +46,11 @@ my-stow -t ${HOME}/.vim vim
 my-stow -t ${HOME}/.fluxbox fluxbox
 my-stow -t ${HOME} tmux
 my-stow -t ${HOME}/.local/bin bin
+
+BRC=$(realpath ${HOME}/.bashrc)
+if [ "${HOME}/.bashrc" = "${BRC}" ]
+then
+    mv ${HOME}/.bashrc ${HOME}/.bashrc.dotfiles_backup
+fi
 my-stow -t ${HOME} varios
+my-stow -t ${HOME}/.ssh ssh

@@ -1,0 +1,20 @@
+# ex: ts=8 sw=4 sts=4 et filetype=sshconfig
+
+Host github.com
+    Hostname github.com
+    IdentityFile ~/.ssh/github.key
+    PreferredAuthentications publickey
+    #ProxyCommand  connect-proxy -a none -S proxy.com:1080  %h %p
+
+Host gitlab.com
+    Hostname gitlab.com
+    IdentityFile ~/.ssh/gitlab.key
+    PreferredAuthentications publickey
+    #ProxyCommand  connect-proxy -a none -S proxy.com:1080  %h %p
+
+Host salsa.debian.org
+    Hostname salsa.debian.org
+    IdentityFile ~/.ssh/salsa.key
+    PreferredAuthentications publickey
+    #ProxyCommand  connect-proxy -a none -S proxy.com:1080  %h %p
+
