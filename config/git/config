@@ -14,6 +14,7 @@
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lf = log --pretty=full
+	lg = log --oneline --decorate --all --graph
 	toKernel = send-email --annotate --cc="linux-kernel@vger.kernel.org"
 	toCLR = send-email --to=\"Clear Linux ML <dev@lists.clearlinux.org>\" --annotate --suppress-cc=all
 	format-serie = format-patch --zero-commit --no-numbered --abbrev=12 --signature=\"Serie\"
