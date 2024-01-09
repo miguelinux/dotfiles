@@ -54,7 +54,7 @@ set sort_browser=date
 set sort_aux=reverse-last-date-received
 
 set pager_context=4 
-set pager_index_lines=10 
+set pager_index_lines=5
 set pager_stop 
 
 # Kernel Documentation
