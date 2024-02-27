@@ -1,0 +1,64 @@
+---
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+# (optional: default false) set to true to have pre-commit stop running hooks
+# after the first failure.
+fail_fast: false
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: fix-byte-order-marker
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: detect-private-key
+      - id: end-of-file-fixer
+  - repo: https://github.com/asottile/reorder_python_imports
+    rev: v3.12.0
+    hooks:
+      - id: reorder-python-imports
+        args: [--application-directories, '.:src', --py38-plus]
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.2.2
+    hooks:
+      # Run the linter.
+      - id: ruff
+        #args: [ --fix ]
+      # Run the formatter.
+      - id: ruff-format
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0  # Use the sha / tag you want to point at
+    hooks:
+      - id: mypy
+  - repo: https://github.com/psf/black
+    rev: 24.2.0
+    hooks:
+      - id: black
+        # It is recommended to specify the latest version of Python
+        # supported by your project here, or alternatively use
+        # pre-commit's default_language_version, see
+        # https://pre-commit.com/#top_level-default_language_version
+        language_version: python3.12
+  - repo: https://github.com/PyCQA/bandit
+    rev: '1.7.7'
+    hooks:
+      - id: bandit
+        name: bandit
+        description: >
+          Bandit is a tool for finding common security issues in Python code
+        entry: bandit
+        language: python
+        language_version: python3
+        types: [python]
+        require_serial: true
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.19.1
+    hooks:
+      - id: gitlint
