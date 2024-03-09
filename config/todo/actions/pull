@@ -4,4 +4,37 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-git -C "$TODO_DIR" pull
+usage()
+{
+    cat <<-EndUsage
+		pull: Git pull the repo
+	EndUsage
+    exit 1
+}
+
+t_pull()
+{
+    git -C "$TODO_DIR" pull
+}
+
+while [ -n "${1}" ]
+do
+    case "$1" in
+        -d|--debug)
+            set -x
+        ;;
+        -e|--error)
+            set -e
+        ;;
+        usage)
+            usage
+        ;;
+        pull)
+            t_pull
+        ;;
+        *)
+            echo $1 not found
+        ;;
+    esac
+    shift
+done

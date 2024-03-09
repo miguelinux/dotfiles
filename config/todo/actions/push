@@ -4,9 +4,42 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-if [ -n "$(git -C $TODO_DIR status --porcelain)" ]
-then
-    git -C "$TODO_DIR" add --all
-    git -C "$TODO_DIR" commit -m "auto-update"
-    git -C "$TODO_DIR" push
-fi
+usage()
+{
+    cat <<-EndUsage
+		push: Add, commit and push the new changes to the Git repo.
+	EndUsage
+    exit 1
+}
+
+t_push()
+{
+    if [ -n "$(git -C $TODO_DIR status --porcelain)" ]
+    then
+        git -C "$TODO_DIR" add --all
+        git -C "$TODO_DIR" commit -m "auto-update"
+        git -C "$TODO_DIR" push
+    fi
+}
+
+while [ -n "${1}" ]
+do
+    case "$1" in
+        -d|--debug)
+            set -x
+        ;;
+        -e|--error)
+            set -e
+        ;;
+        usage)
+            usage
+        ;;
+        push)
+            t_push
+        ;;
+        *)
+            echo $1 not found
+        ;;
+    esac
+    shift
+done
