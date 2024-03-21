@@ -36,6 +36,6 @@ if [ -d /home/miguel -a ! -d /home/miguel/.local/git/dotfiles ]
 then
     mkdir -p /home/miguel/.local/git
     git -C /home/miguel/.local/git clone https://github.com/miguelinux/dotfiles.git
-    chown --recursive miguel:miguel /home/miguel/.local/git
+    chown --recursive miguel:miguel /home/miguel/.local
 fi
 
