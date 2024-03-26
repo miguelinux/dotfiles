@@ -16,7 +16,7 @@ function toca()
     do
         if [ "$found" = "1" ]
         then
-            mpv $est
+            mpv --really-quiet $est
             exit
         fi
         if [ "$est" = "$1" ]
