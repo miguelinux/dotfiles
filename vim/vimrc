@@ -131,40 +131,43 @@ set softtabstop=8
 set shiftwidth=8
 set noexpandtab
 
-"""" Line number setup
-""set number
-""""    set line number hybrid
-""set number relativenumber
-""""    configure the hybrid for
-""""      * absolute number on insert mode
-""""      * relative for command mode / buffer not focused
-"""" snippet stolen from https://jeffkreeftmeijer.com/vim-number/
-""augroup numbertoggle
-""    autocmd!
-""    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-""    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-""augroup END
+
+if has("autocmd")
+	"""" Line number setup
+	""set number
+	""""    set line number hybrid
+	""set number relativenumber
+	""""    configure the hybrid for
+	""""      * absolute number on insert mode
+	""""      * relative for command mode / buffer not focused
+	"""" snippet stolen from https://jeffkreeftmeijer.com/vim-number/
+	""augroup numbertoggle
+	""    autocmd!
+	""    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	""    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+	""augroup END
 
 
-au BufRead /tmp/mutt-* set tw=72
-au BufRead /tmp/mutt-* setlocal spell spelllang=en_us
-au BufRead /tmp/*/*.patch setlocal spell spelllang=en
-au BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
-au BufRead *.rst setlocal spell spelllang=en
-au BufRead *.md  setlocal spell spelllang=en
-au BufRead *.tex set tw=76
-au BufRead *.tex setlocal spell spelllang=es
+	au BufRead /tmp/mutt-* set tw=72
+	au BufRead /tmp/mutt-* setlocal spell spelllang=en_us
+	au BufRead /tmp/*/*.patch setlocal spell spelllang=en
+	au BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
+	au BufRead *.rst setlocal spell spelllang=en
+	au BufRead *.md  setlocal spell spelllang=en
+	au BufRead *.tex set tw=76
+	au BufRead *.tex setlocal spell spelllang=es
 
-" Java
-au BufRead,BufNewFile *.java set tabstop=4
-au BufRead,BufNewFile *.java set softtabstop=4
-au BufRead,BufNewFile *.java set shiftwidth=4
-au BufRead,BufNewFile *.java set expandtab
-au BufRead,BufNewFile *.java set autoindent
-au BufRead,BufNewFile *.java match BadWhitespace /^\t\+/
-au BufRead,BufNewFile *.java match BadWhitespace /\s\+$/
-au         BufNewFile *.java set fileformat=unix
-au BufRead,BufNewFile *.java let b:comment_leader = '//'
+	" Java
+	"" au BufRead,BufNewFile *.java set tabstop=4
+	"" au BufRead,BufNewFile *.java set softtabstop=4
+	"" au BufRead,BufNewFile *.java set shiftwidth=4
+	"" au BufRead,BufNewFile *.java set expandtab
+	"" au BufRead,BufNewFile *.java set autoindent
+	"" au BufRead,BufNewFile *.java match BadWhitespace /^\t\+/
+	"" au BufRead,BufNewFile *.java match BadWhitespace /\s\+$/
+	"" au         BufNewFile *.java set fileformat=unix
+	"" au BufRead,BufNewFile *.java let b:comment_leader = '//'
+endif
 
 " syntax match Tab /\t/
 " hi Tab gui=underline guifg=blue ctermbg=blue 
@@ -181,7 +184,7 @@ au BufRead,BufNewFile *.java let b:comment_leader = '//'
 "/ \+\ze\t
 
 " Used in ctags and cscope
-nmap <F5> <C-]>
+"" nmap <F5> <C-]>
 
 " The following maps all invoke one of the following cscope search types:
 "
@@ -194,12 +197,12 @@ nmap <F5> <C-]>
 "   'i'   includes: find files that include the filename under cursor
 "   'd'   called: find functions that function under cursor calls
 
-nmap <F6> :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <F7> :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <F8> :cs find g <C-R>=expand("<cword>")<CR><CR>
+"" nmap <F6> :cs find c <C-R>=expand("<cword>")<CR><CR>
+"" nmap <F7> :cs find s <C-R>=expand("<cword>")<CR><CR>
+"" nmap <F8> :cs find g <C-R>=expand("<cword>")<CR><CR>
 
 
-nmap <F4> :cs add $CSCOPE_DB
+"" nmap <F4> :cs add $CSCOPE_DB
 
 "function! LoadCscope()
   "let db = findfile("cscope.out", ".;")
