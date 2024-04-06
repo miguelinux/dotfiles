@@ -309,7 +309,11 @@ __git_ps1 ()
 
 	case "$#" in
 		2|3)	pcmode=yes
-			ps1pc_start="$1"
+			if [[ -z "${VIRTUAL_ENV_PROMPT}" ]]; then
+				ps1pc_start="$1"
+			else
+				ps1pc_start="${VIRTUAL_ENV_PROMPT} $1"
+			fi
 			ps1pc_end="$2"
 			printf_format="${3:-$printf_format}"
 			# set PS1 to a plain prompt so that we can
