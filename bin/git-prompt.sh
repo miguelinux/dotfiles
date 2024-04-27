@@ -310,7 +310,11 @@ __git_ps1 ()
 	case "$#" in
 		2|3)	pcmode=yes
 			if [[ -z "${VIRTUAL_ENV_PROMPT}" ]]; then
-				ps1pc_start="$1"
+				if [[ -z "${VIRTUAL_ENV}" ]]; then
+					ps1pc_start="$1"
+				else
+					ps1pc_start="($(basename $VIRTUAL_ENV)) $1"
+				fi
 			else
 				ps1pc_start="${VIRTUAL_ENV_PROMPT}$1"
 			fi
