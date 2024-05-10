@@ -107,7 +107,7 @@ endif
 "endif
 
 if has('gui_gtk3')
-  set guifont=Monospace\ Regular\ 22
+  set guifont=Monospace\ Regular\ 20
   colorscheme torte
 endif
 
