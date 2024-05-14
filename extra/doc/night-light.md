@@ -4,4 +4,4 @@
 
 # Comando para inviertir colores
 
-* calib -i -a 
+* xcalib -i -a 
