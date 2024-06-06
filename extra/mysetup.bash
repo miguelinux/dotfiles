@@ -29,11 +29,11 @@ esac
 
 mkdir -p $HOME/git
 
-if [! -d $HOME/git/dotfiles ]
+if [ ! -d $HOME/git/dotfiles ]
 then
     git -C $HOME/git clone https://github.com/miguelinux/dotfiles.git
 fi
 
-exec $HOME/git/dotfiles/setup.sh
-exec $HOME/git/dotfiles/extra/add-user-miguel.sh
+bash $HOME/git/dotfiles/setup.sh
+bash $HOME/git/dotfiles/extra/add-user-miguel.sh
 

@@ -47,10 +47,13 @@ my-stow -t ${HOME}/.fluxbox fluxbox
 my-stow -t ${HOME} tmux
 my-stow -t ${HOME}/.local/bin bin
 
-BRC=$(realpath ${HOME}/.bashrc)
-if [ "${HOME}/.bashrc" = "${BRC}" ]
-then
-    mv ${HOME}/.bashrc ${HOME}/.bashrc.dotfiles_backup
+if [ -f "${HOME}/.bashrc" ]
+    BRC=$(realpath ${HOME}/.bashrc)
+    if [ "${HOME}/.bashrc" = "${BRC}" ]
+    then
+        mv ${HOME}/.bashrc ${HOME}/.bashrc.dotfiles_backup
+    fi
 fi
+
 my-stow -t ${HOME} varios
 my-stow -t ${HOME}/.ssh ssh
