@@ -48,6 +48,7 @@ my-stow -t ${HOME} tmux
 my-stow -t ${HOME}/.local/bin bin
 
 if [ -f "${HOME}/.bashrc" ]
+then
     BRC=$(realpath ${HOME}/.bashrc)
     if [ "${HOME}/.bashrc" = "${BRC}" ]
     then
