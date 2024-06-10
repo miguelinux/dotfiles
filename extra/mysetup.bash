@@ -34,6 +34,7 @@ then
     git -C $HOME/git clone https://github.com/miguelinux/dotfiles.git
 fi
 
-bash $HOME/git/dotfiles/setup.sh
+cd $HOME/git/dotfiles
+bash setup.sh
 bash $HOME/git/dotfiles/extra/add-user-miguel.sh
 
