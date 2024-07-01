@@ -1,0 +1,1 @@
+install gnome-shell-extension-appindicator gnome-extensions-app
