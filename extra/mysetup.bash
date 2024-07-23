@@ -13,10 +13,16 @@ fi
 test -e /etc/os-release && os_release='/etc/os-release' || os_release='/usr/lib/os-release'
 source "${os_release}"
 
-packages_to_install="git git-lfs stow tmux vim rsync connect-proxy curl"
+packages_to_install="git git-lfs tmux vim rsync curl"
+packages_to_install_too="stow connect-proxy"
 
 case $ID in
-    fedora|centos)
+    fedora)
+        dnf -y update
+        dnf -y install $packages_to_install
+        dnf -y install $packages_to_install_too
+    ;;
+    centos)
         dnf -y update
         dnf -y install $packages_to_install
     ;;
@@ -24,6 +30,7 @@ case $ID in
         apt-get -y update
         apt-get -y upgrade
         apt-get -y install $packages_to_install
+        apt-get -y install $packages_to_install_too
     ;;
 esac
 
