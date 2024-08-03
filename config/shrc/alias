@@ -22,3 +22,10 @@ alias tq="teams --quit; rm -f $HOME/.config/autostart/teams.desktop"
 if [ -f /usr/lib/mc/mc.sh ]; then
   source /usr/lib/mc/mc.sh
 fi
+
+# quilt Debian
+if [ -f  /usr/share/bash-completion/completions/quilt ]; then
+    alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
+    source /usr/share/bash-completion/completions/quilt
+    complete -F _quilt_completion $_quilt_complete_opt dquilt
+fi
