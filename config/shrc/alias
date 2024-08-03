@@ -17,3 +17,8 @@ export ssh_args
 
 alias t="todo.sh"
 alias tq="teams --quit; rm -f $HOME/.config/autostart/teams.desktop"
+
+# mc related from Debian
+if [ -f /usr/lib/mc/mc.sh ]; then
+  source /usr/lib/mc/mc.sh
+fi
