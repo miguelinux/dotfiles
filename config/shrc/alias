@@ -3,9 +3,6 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-# Open a new pane in tmux with vim
-alias tvim="tmux splitw -t 0 vim"
-
 ssh_args=" -o StrictHostKeyChecking=no "
 ssh_args+="-o UserKnownHostsFile=/dev/null "
 ssh_args+="-o LogLevel=Error "
@@ -20,4 +17,3 @@ export ssh_args
 
 alias t="todo.sh"
 alias tq="teams --quit; rm -f $HOME/.config/autostart/teams.desktop"
-alias tsvg="termtosvg -t window_frame_js"
