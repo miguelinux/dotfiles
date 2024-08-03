@@ -9,6 +9,8 @@ estaciones="
 metropoli https://s2.yesstreaming.net:9088/stream
 "
 
+estacion=metropoli
+
 function toca() 
 {
     found=0
@@ -41,22 +43,11 @@ then
             n=0
         fi
     done
-    exit
 fi
 
-while [ -n "${1}" ]
-do
-    case "$1" in
-        -d|--debug)
-            set -x
-        ;;
-        -e|--error)
-            set -e
-        ;;
-        *)
-            toca $1
-        ;;
-    esac
-    shift
-done
+if [ -n "${1}" ]
+then
+    estacion=$1
+fi
 
+toca $estacion
