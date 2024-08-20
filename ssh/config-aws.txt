@@ -6,6 +6,7 @@ Host aws
     #User      ec2-user
     #User      admin
     IdentityFile ~/.ssh/my.key
+    IdentitiesOnly yes
     PreferredAuthentications publickey
     StrictHostKeyChecking  no
     UserKnownHostsFile     /dev/null
