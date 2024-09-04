@@ -1,0 +1,2 @@
+/server add libera irc.libera.chat/6697 -tls
+/server add oftc  irc.oftc.net/6697 -tls
