@@ -1,3 +1,4 @@
+# vi: filetype=dosini
 # Configuration file for "gbp <command>"
 
 [DEFAULT]
