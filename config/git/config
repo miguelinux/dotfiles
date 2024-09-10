@@ -42,3 +42,7 @@
 	process = git-lfs filter-process --skip
 	required = true
 	clean = git-lfs clean -- %f
+[url "git.debian.org:/git/"]
+	insteadOf = https://anonscm.debian.org/git/
+[url "git@salsa.debian.org:"]
+	insteadOf = https://salsa.debian.org/
