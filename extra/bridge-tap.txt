@@ -1,5 +1,17 @@
-sudo nmcli connection add type bridge con-name bridge0 ifname br0
-sudo nmcli connection modify bridge0 bridge.mac-address 00:AA:00:11:22:33
-sudo nmcli connection modify bridge0 bridge.stp no
-sudo nmcli connection add type tun ifname tap0 con-name tap0 slave-type bridge master bridge0 mode tap owner $(id -u)
+1. sudo nmcli connection add type bridge con-name bridge0 ifname br0
+2. sudo nmcli connection modify bridge0 bridge.mac-address 00:AA:00:11:22:33
+3. sudo nmcli connection modify bridge0 bridge.stp no
+4. sudo nmcli connection add type tun ifname tap0 con-name tap0 slave-type bridge master bridge0 mode tap owner $(id -u)
+
+5. sudo nmcli connection modify eth0 connection.slave-type bridge connection.master br0
+
+# Y en 2 pasos la linea 4:
+
+URL: https://mail.gnome.org/archives/networkmanager-list/2016-January/msg00053.html
+
+$ nmcli connection add type tun \
+          ifname tap0 con-name tap0 \
+          mode tap owner `id -u` ip4 0.0.0.0/24
+$ nmcli connection mod tap0 connection.slave-type bridge \
+          connection.master br0
 
