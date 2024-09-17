@@ -1,2 +1,51 @@
 /server add libera irc.libera.chat/6697 -tls
 /server add oftc  irc.oftc.net/6697 -tls
+
+/set irc.server.libera.nicks "miguelinux,miguelinux0,miguelinux1"
+/set irc.server.oftc.nicks "miguelinux,miguelinux0,miguelinux1"
+
+/set irc.server.libera.username "My user name"
+/set irc.server.libera.realname "My real name"
+
+/server listfull
+
+# https://libera.chat/guides/weechat
+
+/set irc.server.libera.sasl_mechanism plain
+/set irc.server.libera.sasl_username <nickname>
+/set irc.server.libera.sasl_password <password>
+/save
+/secure passphrase <passphrase>
+/secure set libera_password <password>
+/set irc.server.libera.sasl_password "${sec.data.libera_password}"
+
+/set irc.server.libera.autoconnect on
+
+/set irc.server.libera.autojoin "#channel1,#channel2"
+
+"#archlinux-mx,#clearlinux,#raspbian,#ubuntu-devel,#ubuntu-es,#ubuntu-mx"
+"#debian-devel,#debian-devel-es,#debian-golang,#debian-kernel,#debian-mentors,#debian-mentors-es,#debian-mx,#debian-next,#debian-python,#debian-raspberrypi,#kernelnewbies"
+
+#  https://blog.weechat.org/post/2008/10/25/Smart-IRC-join-part-quit-message-filter
+A new smart filter for IRC join/part/quit message has been added. It is disabled by default (so you'll see all join/part/quit by default).
+
+To enable it, use following commands:
+
+/set irc.look.smart_filter on
+/filter add irc_smart * irc_smart_filter *
+
+You can setup delay: /set irc.look.smart_filter_delay 5
+
+###############################################################################
+
+# Relay
+
+https://gist.github.com/miblodelcarpio/20da48bcdfb55c0860c44fd42d1b9647
+https://rigtorp.se/notes/weechat/
+https://weechat.org/files/doc/weechat/stable/weechat_user.en.html#relay
+
+/secure set relay mypassword
+/set relay.network.password "${sec.data.relay}"
+
+/relay add unix.weechat ${weechat_runtime_dir}/relay_socket
+
