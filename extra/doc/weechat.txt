@@ -1,3 +1,9 @@
+###############################################################################
+# Links
+  * https://lug.oregonstate.edu/blog/weechat-advanced/
+  * https://github.com/Ratler/weechat/blob/master/doc/en/autogen/user/weechat_commands.txt
+###############################################################################
+
 /server add libera irc.libera.chat/6697 -tls
 /server add oftc  irc.oftc.net/6697 -tls
 
