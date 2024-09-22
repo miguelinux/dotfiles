@@ -1,1 +1,6 @@
 firewall-cmd --add-forward-port=port=80:proto=tcp:toport=8080
+
+Para ver los puertos es con:
+
+# sudo ss -atpu
+
