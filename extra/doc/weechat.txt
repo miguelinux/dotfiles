@@ -42,6 +42,10 @@ To enable it, use following commands:
 
 You can setup delay: /set irc.look.smart_filter_delay 5
 
+
+/set weechat.look.mouse on
+/mouse enable
+
 ###############################################################################
 
 # Relay
@@ -55,3 +59,6 @@ https://weechat.org/files/doc/weechat/stable/weechat_user.en.html#relay
 
 /relay add unix.weechat ${weechat_runtime_dir}/relay_socket
 
+
+/set relay.network.bind_address "127.0.0.1"
+/relay add ipv4.weechat 9001
