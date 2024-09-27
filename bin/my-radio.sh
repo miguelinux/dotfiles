@@ -7,6 +7,7 @@
 
 estaciones="
 metropoli https://s2.yesstreaming.net:9088/stream
+medieval http://stream.ancientfm.com:8058/stream
 "
 
 estacion=metropoli
