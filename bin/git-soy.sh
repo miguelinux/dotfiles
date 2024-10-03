@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-QUIENSOY=miguel
+QUIENSOY=""
 MY_DB=${HOME}/.config/git-soy.csv
 
 if [ ! -d .git ]
@@ -35,10 +35,14 @@ do
     shift
 done
 
-MY_NAME=$(grep -m 1 $QUIENSOY $MY_DB | cut -f 1 -d ,)
-MY_MAIL=$(grep -m 1 $QUIENSOY $MY_DB | cut -f 2 -d ,)
+if [ -n "$QUIENSOY" ]
+then
+    MY_NAME=$(grep -m 1 $QUIENSOY $MY_DB | cut -f 1 -d ,)
+    MY_MAIL=$(grep -m 1 $QUIENSOY $MY_DB | cut -f 2 -d ,)
 
-git config user.name "$MY_NAME"
-git config user.email $MY_MAIL
+    git config user.name "$MY_NAME"
+    git config user.email $MY_MAIL
+fi
+
 git config user.name
 git config user.email
