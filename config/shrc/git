@@ -15,7 +15,7 @@ export GIT_PS1_SHOWCOLORHINTS=1
 
 #export GIT_PROXY_COMMAND=$HOME/bin/git-proxy
 
-source $HOME/.local/bin/git-completion.bash
+#source $HOME/.local/bin/git-completion.bash
 source $HOME/.local/bin/git-sh-prompt
 
 # source ${HOME}/.config/shrc/my-prompt
