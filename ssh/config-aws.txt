@@ -5,8 +5,8 @@ Host aws
     User      ubuntu
     #User      ec2-user
     #User      admin
-    IdentityFile ~/.ssh/my.key
     IdentitiesOnly yes
+    IdentityFile ~/.ssh/my.key
     PreferredAuthentications publickey
     StrictHostKeyChecking  no
     UserKnownHostsFile     /dev/null
@@ -16,3 +16,19 @@ Host aws
     AddressFamily          inet
     #ProxyCommand  connect-proxy -a none -S proxy.com:1080  %h %p
 
+Host tunel
+    Hostname  w.x.y.z
+    User      ubuntu
+    LocalForward 10000 localhost:10000
+    SessionType  none
+    RequestTTY   no
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/my.key
+    PreferredAuthentications publickey
+    StrictHostKeyChecking  no
+    UserKnownHostsFile     /dev/null
+    LogLevel               error
+    ConnectTimeout         15
+    IdentitiesOnly         yes
+    AddressFamily          inet
+    #ProxyCommand  connect-proxy -a none -S proxy.com:1080  %h %p
