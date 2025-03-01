@@ -22,13 +22,18 @@ repos:
   - repo: https://github.com/miguelinux/reorder-python-imports
     # fork from: https://github.com/asottile/reorder_python_imports
     # rev: vX.Y.Z.1
-    rev: v3.13.0.1
+    rev: v3.14.0.1
     hooks:
       - id: reorder-python-imports
-        args: [--application-directories, '.:src', --py38-plus]
+        name: Reorder python imports
+        description: This hook reorders imports in python files.
+        entry: reorder-python-imports
+        language: python
+        types: [python]
+        #args: [--application-directories, '.:src', --py38-plus]
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
-    rev: v0.8.2
+    rev: v0.9.9
     hooks:
       # Run the linter.
       - id: ruff
@@ -36,20 +41,21 @@ repos:
       # Run the formatter.
       - id: ruff-format
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.13.0  # Use the sha / tag you want to point at
+    rev: v1.15.0  # Use the sha / tag you want to point at
     hooks:
       - id: mypy
+        #additional_dependencies: [types-requests]
   - repo: https://github.com/psf/black
-    rev: 24.10.0
+    rev: 25.1.0
     hooks:
       - id: black
         # It is recommended to specify the latest version of Python
         # supported by your project here, or alternatively use
         # pre-commit's default_language_version, see
         # https://pre-commit.com/#top_level-default_language_version
-        language_version: python3.12
+        language_version: python3.13
   - repo: https://github.com/PyCQA/bandit
-    rev: '1.8.0'
+    rev: '1.8.3'
     hooks:
       - id: bandit
         name: bandit
@@ -65,6 +71,6 @@ repos:
     hooks:
       - id: gitlint
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.21.2
+    rev: v8.24.0
     hooks:
       - id: gitleaks
