@@ -29,3 +29,9 @@ if [ -f  /usr/share/bash-completion/completions/quilt ]; then
     source /usr/share/bash-completion/completions/quilt
     complete -F _quilt_completion $_quilt_complete_opt dquilt
 fi
+
+# batcat
+if ! command -v bat &> /dev/null
+then
+    alias bat=batcat
+fi
