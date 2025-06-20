@@ -1,4 +1,5 @@
 [
+  "github": "https://github.com/jwendell/gnome-shell-extension-timezone"
   {
     "tz": "America/Los_Angeles"
   },
