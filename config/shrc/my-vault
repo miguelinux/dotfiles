@@ -1,0 +1,13 @@
+# -*- mode: shell-script; indent-tabs-mode: nil; sh-basic-offset: 4; -*-
+# vi: ts=8 sw=4 sts=4 et filetype=sh
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+if ! test -f ${XDG_RUNTIME_DIR}/my-vault.lock
+then
+    if test -f ${HOME}/.config/my-vault.sh.conf
+    then
+        ${HOME}/.local/bin/my-vault.sh
+        touch ${XDG_RUNTIME_DIR}/my-vault.lock
+    fi
+fi
