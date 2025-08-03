@@ -31,4 +31,8 @@ $ ps aux | grep gpg
 8246  /usr/bin/gpg-agent --supervised
 $ kill 8246
 
+# Send to server
+
+gpg --keyserver keyserver.ubuntu.com --send-key 90A808023328BD4E58143AC5E6CB7939B6C3AAB7
+
 <!-- vi: set spl=en spell: -->
