@@ -10,10 +10,25 @@ $HOME/.gnupg/private-keys-v1.d/KEYGRIP.key
 
 https://wiki.debian.org/Subkeys
 
+#  Add new public keys
+
+Add a line to your ~/.gnupg/gpg.conf file such as:
+
+`keyring /usr/share/keyrings/debian-keyring.gpg`
+`keyring /usr/share/keyrings/debian-maintainers.gpg`
+
+or
+
+`keyserver keyring.debian.org`
+
+* https://keyserver.ubuntu.com (recommended)
+
+https://wiki.debian.org/Keysigning
+
 # Renew (hacking)
 
 $ ps aux | grep gpg
 8246  /usr/bin/gpg-agent --supervised
 $ kill 8246
 
-<!-- vi: set spl=es spell: -->
+<!-- vi: set spl=en spell: -->
