@@ -8,6 +8,11 @@ gpg --quick-add-key <fingerprint> rsa4096 encr 202X-01-01
 gpg2 --with-keygrip --list-key YOURPRIMARYKEYID
 $HOME/.gnupg/private-keys-v1.d/KEYGRIP.key
 
+gpg --edit-key YOURPRIMARYKEYID passwd
+
+* los mocosos.
+* yo mero.
+
 https://wiki.debian.org/Subkeys
 
 #  Add new public keys
