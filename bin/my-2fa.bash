@@ -23,7 +23,7 @@ _new-2fa-entry ()
     local usuario
     local llave
 
-    if [ $# -lt 2 ]
+    if [ $# -lt 3 ]
     then
         >&2 echo "Faltan argumentos: sitio y/o usuario y/o llave"
         >&2 echo "Uso: $0 new sitio usuario llave"
