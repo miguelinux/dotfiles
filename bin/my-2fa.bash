@@ -4,11 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-MY_VAULT=$HOME/.my-vault.2fa.csv
-
 # run: gpg --list-secret-keys --keyid-format LONG
 U_ID="nombre <correo>"
 K_ID="1234567890ABCDEF"
+DIR_PATH="${HOME}"/.config/2fa
+
+_gpg=/usr/bin/gpg
+_oathtool=/usr/bin/oathtool
 
 if [ -e "${HOME}"/.config/2fa/config ]
 then
@@ -17,41 +19,87 @@ fi
 
 _new-2fa-entry ()
 {
-    local datos
     local id
+    local usuario
     local llave
-    datos=""
 
     if [ $# -lt 2 ]
     then
-        >&2 echo "Faltan argumentos: sitio y/o llave"
+        >&2 echo "Faltan argumentos: sitio y/o usuario y/o llave"
+        >&2 echo "Uso: $0 new sitio usuario llave"
         exit 1
     fi
 
     id=$1
     shift
+    usuario=$1
+    shift
     llave="$*"
 
-    if [ -f "$MY_VAULT" ]
+    if [ -f $DIR_PATH/$id.$usuario.txt ]
     then
-        datos="$(gpg --decrypt --quiet "$MY_VAULT")"
-    else
-        #touch "$MY_VAULT" 
-        echo no existe
-    fi
-
-    if echo "$datos" | grep --quiet "$id"
-    then
-        >&2 echo "El sitio $id ya existe"
+        >&2 echo "El sitio $id con $usuario ya existe"
         exit 2
     fi
-        
-    echo "$llave" | gpg --encrypt --local-user "$K_ID" --recipient "$U_ID" --output - --armor
 
-    echo $id
-    echo $llave
-
+    local tmpfile=$(mktemp --dry-run)
+    echo "$llave" | $_gpg --encrypt --local-user "$K_ID" --recipient "$U_ID" --batch --output "$tmpfile" --armor
+    $_gpg --symmetric --cipher-algo AES256 --batch --output $DIR_PATH/$id.$usuario.txt --armor "$tmpfile"
+    rm -f "$tmpfile"
 }
+
+_decrypt-2fa-entry ()
+{
+    local sitio
+    local usuario
+    local totp
+    local tmpfile
+    sitio=$1
+    usuario=$2
+
+    if [ -f $DIR_PATH/$sitio.$usuario.txt ]
+    then
+        tmpfile=$(mktemp --dry-run)
+        $_gpg --decrypt --quiet --batch --output "$tmpfile" $DIR_PATH/$sitio.$usuario.txt
+        totp=$($_gpg --decrypt --quiet --local-user "$K_ID" --recipient "$U_ID" --batch --output - "$tmpfile")
+    else
+        exit 3
+    fi
+
+    if [ -z "$totp" ]
+    then
+        exit 4
+    fi
+
+    rm $tmpfile
+
+    code=$($_oathtool -b --totp "$totp")
+    type -a xclip &> /dev/null
+    test $? -eq 0 && { echo $code | xclip -selection clipboard; echo "*** Código copiado al porta papeles ***"; }
+    echo "$code"
+}
+
+for p in $_gpg $_oathtool
+do
+    if [ ! -x $p ]
+    then
+        >&2 echo "$p NO existe"
+        exit 5
+    fi
+done
+
+if [ "$#" = 0 ]
+then
+    _sites=$(ls $DIR_PATH/*.txt)
+    printf " %10s %10s\n" sitio usuario
+    for d in $_sites
+    do
+        f=${d##*/}
+        s=$(echo $f | cut -f 1 -d .)
+        u=$(echo $f | cut -f 2 -d .)
+        printf " %10s %10s\n" $s $u
+    done
+fi
 
 while [ -n "${1}" ]
 do
@@ -68,7 +116,16 @@ do
             exit 0
         ;;
         *)
-            echo hola
+            _site=$1
+            shift
+            _user=$1
+            if [ -f $DIR_PATH/$_site.$_user.txt ]
+            then
+                _decrypt-2fa-entry $_site $_user
+            else
+                >&2 echo "El sitio $_site con $_user NO existe"
+                exit 3
+            fi
         ;;
     esac
     shift
