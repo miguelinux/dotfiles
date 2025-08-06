@@ -5,7 +5,7 @@ gpg --quick-generate-key  "Nombre <correo>" ed25519 cert never
 gpg --quick-add-key <fingerprint> ed25519 sign 202X-01-01
 gpg --quick-add-key <fingerprint> rsa4096 encr 202X-01-01
 
-gpg2 --with-keygrip --list-key YOURPRIMARYKEYID
+gpg --with-keygrip --list-key YOURPRIMARYKEYID
 $HOME/.gnupg/private-keys-v1.d/KEYGRIP.key
 
 gpg --edit-key YOURPRIMARYKEYID passwd
@@ -39,5 +39,16 @@ $ kill 8246
 # Send to server
 
 gpg --keyserver keyserver.ubuntu.com --send-key 90A808023328BD4E58143AC5E6CB7939B6C3AAB7
+
+# Backup
+
+* gpg --export-secret-keys --armor --output prk-compaq515.asc miguel.bernal.marin@gmail.com
+* gpg -a --export miguel.bernal.marin@gmail.com > mbm-puk.key
+* gpg --export-ownertrust > mbm-ownertrust-gpg.txt
+
+# Restore
+
+* gpg --import chrisroos-secret-gpg.key
+* gpg --import-ownertrust chrisroos-ownertrust-gpg.txt
 
 <!-- vi: set spl=en spell: -->
