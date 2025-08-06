@@ -15,6 +15,9 @@ _oathtool=/usr/bin/oathtool
 if [ -e "${HOME}"/.config/2fa/config ]
 then
   source "${HOME}"/.config/2fa/config
+else
+    >&2 echo "No se encontro archivo de configuración."
+    exit 1
 fi
 
 _new-2fa-entry ()
