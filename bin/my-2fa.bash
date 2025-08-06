@@ -64,6 +64,8 @@ _decrypt-2fa-entry ()
     then
         tmpfile=$(mktemp --dry-run)
         $_gpg --decrypt --quiet --batch --output "$tmpfile" $DIR_PATH/$sitio.$usuario.txt
+        # Synchronize cached writes to persistent storage
+        sync
         totp=$($_gpg --decrypt --quiet --local-user "$K_ID" --recipient "$U_ID" --batch --output - "$tmpfile")
     else
         exit 3
