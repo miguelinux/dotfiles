@@ -11,6 +11,7 @@ DIR_PATH="${HOME}"/.config/2fa
 
 _gpg=/usr/bin/gpg
 _oathtool=/usr/bin/oathtool
+_qrencode=/usr/bin/qrencode
 
 if [ -e "${HOME}"/.config/2fa/config ]
 then
@@ -51,6 +52,44 @@ _new-2fa-entry ()
     rm -f "$tmpfile"
 }
 
+_get_qr ()
+{
+    local sitio
+    local usuario
+    local totp
+    local tmpfile
+    sitio=$1
+    usuario=$2
+
+    if [ -f $DIR_PATH/$sitio.$usuario.txt ]
+    then
+        tmpfile=$(mktemp --dry-run)
+        $_gpg --decrypt --quiet --batch --output "$tmpfile" $DIR_PATH/$sitio.$usuario.txt
+        if [ $? -ne 0 ]
+        then
+            rm -f $tmpfile
+            exit 2
+        fi
+        # Synchronize cached writes to persistent storage
+        sync
+        totp=$($_gpg --decrypt --quiet --local-user "$K_ID" --recipient "$U_ID" --batch --output - "$tmpfile")
+        rm $tmpfile
+    else
+        exit 3
+    fi
+
+    if [ -z "$totp" ]
+    then
+        exit 4
+    fi
+
+
+    totp=$(echo $totp | tr -d ' ')
+    url="otpauth://totp/$sitio%3A$usuario?period=30&digits=6&algorithm=SHA1&secret=$totp&issuer=$sitio"
+
+    qrencode -t UTF8 $url
+}
+
 _decrypt-2fa-entry ()
 {
     local sitio
@@ -64,9 +103,15 @@ _decrypt-2fa-entry ()
     then
         tmpfile=$(mktemp --dry-run)
         $_gpg --decrypt --quiet --batch --output "$tmpfile" $DIR_PATH/$sitio.$usuario.txt
+        if [ $? -ne 0 ]
+        then
+            rm -f $tmpfile
+            exit 2
+        fi
         # Synchronize cached writes to persistent storage
         sync
         totp=$($_gpg --decrypt --quiet --local-user "$K_ID" --recipient "$U_ID" --batch --output - "$tmpfile")
+        rm $tmpfile
     else
         exit 3
     fi
@@ -76,7 +121,6 @@ _decrypt-2fa-entry ()
         exit 4
     fi
 
-    rm $tmpfile
 
     code=$($_oathtool -b --totp "$totp")
     type -a xclip &> /dev/null
@@ -84,7 +128,7 @@ _decrypt-2fa-entry ()
     echo "$code"
 }
 
-for p in $_gpg $_oathtool
+for p in $_gpg $_oathtool $_qrencode
 do
     if [ ! -x $p ]
     then
@@ -118,6 +162,11 @@ do
         new)
             shift
             _new-2fa-entry "$@"
+            exit 0
+        ;;
+        qr)
+            shift
+            _get_qr "$@"
             exit 0
         ;;
         *)
