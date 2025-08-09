@@ -6,7 +6,7 @@
 
 if [ "${0##*/}" = "decifra.sh" ]
 then
-    gpg --decrypt --quiet --batch --passphrase-file $1 $2
+    gpg --decrypt --quiet --batch --passphrase-file $@
 else
-    gpg --symmetric --cipher-algo AES256 --batch --passphrase-file $1 $2
+    gpg --symmetric --cipher-algo AES256 --batch --passphrase-file $@
 fi
