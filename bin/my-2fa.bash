@@ -140,13 +140,13 @@ done
 if [ "$#" = 0 ]
 then
     _sites=$(ls $DIR_PATH/*.txt)
-    printf " %10s %10s\n" sitio usuario
+    printf " %15s %15s\n" sitio usuario
     for d in $_sites
     do
         f=${d##*/}
         s=$(echo $f | cut -f 1 -d .)
         u=$(echo $f | cut -f 2 -d .)
-        printf " %10s %10s\n" $s $u
+        printf " %15s %15s\n" $s $u
     done
 fi
 
