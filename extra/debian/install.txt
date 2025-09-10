@@ -4,4 +4,4 @@ apt install build-essential fakeroot devscripts libncurses-dev
 apt build-dep linux                                                                                                                
 apt install xmlto
 
-apt install qrencode oathtool
+apt install qrencode oathtool pdf-presenter-console
