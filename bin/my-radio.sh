@@ -8,6 +8,7 @@
 estaciones="
 metropoli https://s2.yesstreaming.net:9088/stream
 medieval http://stream.ancientfm.com:8058/stream
+lofi-girl ytdl://https://www.youtube.com/watch?v=jfKfPfyJRdk
 "
 
 estacion=metropoli
@@ -19,7 +20,7 @@ function toca()
     do
         if [ "$found" = "1" ]
         then
-            mpv --really-quiet $est
+            mpv --really-quiet --video=no $est
             exit
         fi
         if [ "$est" = "$1" ]
