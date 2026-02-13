@@ -10,6 +10,7 @@ metropoli https://s2.yesstreaming.net:9088/stream
 medieval http://stream.ancientfm.com:8058/stream
 lofi-girl ytdl://https://www.youtube.com/watch?v=jfKfPfyJRdk
 ambiente-hbr1 http://radio.hbr1.com/stream/ambient.ogg
+rock-station https://node-15.zeno.fm/rhp133qg6bruv.aac
 "
 
 estacion=metropoli
