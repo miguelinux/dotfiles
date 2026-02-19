@@ -1,0 +1,25 @@
+# vi: filetype=editorconfig
+# This is an ini style configuration.
+# See http://editorconfig.org/ for more information.
+#
+# Top level editor config.
+root = true
+
+[*]
+# Unix-style newlines
+end_of_line = lf
+# UTF-8 encoding
+charset = utf-8
+# Trim trailing whitespace
+trim_trailing_whitespace = true
+# Ensure file ends with a newline
+insert_final_newline = true
+trim_trailing_whitespace = true 
+
+[*.py]
+# 4 space indentation for Python files
+indent_style = space
+indent_size = 4
+# Max line length for Python (commonly 80 or 100 characters)
+max_line_length = 80
+
