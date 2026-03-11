@@ -420,7 +420,7 @@ __git_ps1 ()
 					ps1pc_start="($(basename $VIRTUAL_ENV)) $1"
 				fi
 			else
-				if [ ${VIRTUAL_ENV_PROMPT: -1} = " " ]; then
+				if [ "${VIRTUAL_ENV_PROMPT: -1}" = " " ]; then
 					ps1pc_start="${VIRTUAL_ENV_PROMPT}$1"
 				else
 					ps1pc_start="${VIRTUAL_ENV_PROMPT} $1"
