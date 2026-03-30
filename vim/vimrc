@@ -260,3 +260,6 @@ set backupdir=~/.cache/vim,.
 " https://superuser.com/questions/1111169/vim-open-file-in-a-new-tab
 nnoremap <C-Left>  :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
+
+" Add editorconfig plugin package
+packadd! editorconfig
