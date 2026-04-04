@@ -25,4 +25,9 @@ else
     VISUAL="vim "
 fi
 
+if [ "${XDG_SESSION_TYPE}" = "wayland" ]
+then
+    export GVIM_ENABLE_WAYLAND=1
+fi
+
 export PATH EDITOR VISUAL
