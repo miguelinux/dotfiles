@@ -1,0 +1,1 @@
+echo password | md5sum | cut -c -31 | base64
