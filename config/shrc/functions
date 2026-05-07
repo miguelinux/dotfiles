@@ -19,9 +19,11 @@ function g()
 {
     if test -e $1
     then
-        gvim --servername GVIM --remote-tab-silent "$1"
+        gvim --servername GVIM --remote-tab-silent "$@"
     else
-        gvim --servername GVIM$1 --remote-tab-silent "$2"
+        VIMNUM=$1
+        shift
+        gvim --servername GVIM${VIMNUM} --remote-tab-silent "$@"
     fi
 }
 
