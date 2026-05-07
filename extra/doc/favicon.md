@@ -12,5 +12,11 @@ convert image.png  -background white \
 ```
 
 source: https://morsetree.medium.com/creating-a-favicon-command-line-8f6bf224e360
+
+other source is
+
+
+https://gist.github.com/jfrobbins/7a579fe888b08612f892db759db2ed13
+
 <!-- vi: set spl=es spell: -->
 
