@@ -17,6 +17,12 @@ PATH=${PATH}:${HOME}/.local/bin
 #    export PYCHARM_JDK
 #fi
 
+if [ -d /home/miguel/.opencode/bin ]
+then
+  # opencode
+  PATH=/home/miguel/.opencode/bin:$PATH
+fi
+
 if [ "x${DISPLAY}" != "x" ]; then
     EDITOR="gvim -f"
     VISUAL="gvim -f"
