@@ -36,10 +36,13 @@ mkdir -m 700 -p ${HOME}/.config/todo/actions
 mkdir -m 700 -p ${HOME}/.fluxbox
 mkdir -m 700 -p ${HOME}/.local/bin
 mkdir -m 700 -p ${HOME}/.mutt
+mkdir -m 700 -p ${HOME}/.vim/autoload
 mkdir -m 700 -p ${HOME}/.vim/colors
-mkdir -m 700 -p ${HOME}/.vim/templates
-mkdir -m 700 -p ${HOME}/.vim/spell
+mkdir -m 700 -p ${HOME}/.vim/config
 mkdir -m 700 -p ${HOME}/.vim/pack
+mkdir -m 700 -p ${HOME}/.vim/plugged
+mkdir -m 700 -p ${HOME}/.vim/spell
+mkdir -m 700 -p ${HOME}/.vim/templates
 mkdir -m 700 -p ${HOME}/.ssh
 
 my-stow -t ${HOME}/.config config

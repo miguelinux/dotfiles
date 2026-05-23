@@ -263,3 +263,11 @@ nnoremap <C-Right> :tabnext<CR>
 
 " Add editorconfig plugin package
 packadd! editorconfig
+
+
+" https://github.com/junegunn/vim-plug
+call plug#begin()
+
+Plug 'gergap/vim-ollama'
+
+call plug#end()
