@@ -271,3 +271,6 @@ call plug#begin()
 Plug 'gergap/vim-ollama'
 
 call plug#end()
+
+" Disable Ollama
+let g:ollama_enabled = 0
