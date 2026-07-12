@@ -8,6 +8,8 @@
 #MAP_NAME=vault
 #MOUNT_DIR=${HOME}/.local/vault
 
+ONLY_MOUNT=no
+
 while [ -n "${1}" ]
 do
     case "$1" in
@@ -16,6 +18,9 @@ do
         ;;
         -e|--error)
             set -e
+        ;;
+        -m|--mount)
+            ONLY_MOUNT=yes
         ;;
     esac
     shift
@@ -32,7 +37,10 @@ then
     source ${HOME}/.config/my-vault.sh.conf
     if ! mount | grep --quiet ${MOUNT_DIR}
     then
-        ${SU_CMD} cryptsetup open ${VAULT_FILE} ${MAP_NAME} && \
+        if [ "no" = "$ONLY_MOUNT" ]
+        then
+            ${SU_CMD} cryptsetup open ${VAULT_FILE} ${MAP_NAME}
+        fi
         ${SU_CMD} mount /dev/mapper/${MAP_NAME} ${MOUNT_DIR}
     else
         ${SU_CMD} umount /dev/mapper/${MAP_NAME} && \
