@@ -31,6 +31,12 @@ function my-ssh-agent()
 {
     if [ -z "${SSH_AGENT_PID}" ]
     then
-        eval "$(ssh-agent -s)"
+        if ! ps aux | grep "ssh-agent -s" | grep -v grep | grep --quiet $USER
+        then
+            ssh-agent -s > $HOME/.cache/ssh-agent.output
+        fi
+        if test -f $HOME/.cache/ssh-agent.output
+            source $HOME/.cache/ssh-agent.output
+        fi
     fi
 }
