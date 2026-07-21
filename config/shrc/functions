@@ -36,6 +36,7 @@ function my-ssh-agent()
             ssh-agent -s > $HOME/.cache/ssh-agent.output
         fi
         if test -f $HOME/.cache/ssh-agent.output
+        then
             source $HOME/.cache/ssh-agent.output
         fi
     fi
