@@ -1,0 +1,6 @@
+Ubuntu 18.04.6 LTS (Bionic Beaver)
+Ubuntu 20.04.6 LTS (Focal Fossa)
+Ubuntu 22.04.5 LTS (Jammy Jellyfish)
+Ubuntu 24.04.4 LTS (Noble Numbat)
+Ubuntu 26.04   LTS (Resolute Raccoon)
+
