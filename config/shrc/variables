@@ -5,6 +5,8 @@
 
 PATH=${PATH}:${HOME}/.local/bin
 
+BAT_PAGER=""
+
 #if test -d /usr/lib/jvm/java-1.8.0-openjdk
 #then
 #    PYCHARM_JDK=/usr/lib/jvm/java-1.8.0-openjdk
@@ -23,6 +25,12 @@ then
   PATH=/home/miguel/.opencode/bin:$PATH
 fi
 
+# Added by QGenie for OpenCode
+if test -d $HOME/.local/share/qgenie-cli/opencode-cli/bin
+then
+    PATH=$HOME/.local/share/qgenie-cli/opencode-cli/bin:$PATH
+fi
+
 if [ "x${DISPLAY}" != "x" ]; then
     EDITOR="gvim -f"
     VISUAL="gvim -f"
@@ -36,4 +44,4 @@ then
     export GVIM_ENABLE_WAYLAND=1
 fi
 
-export PATH EDITOR VISUAL
+export PATH EDITOR VISUAL BAT_PAGER
