@@ -5,7 +5,6 @@ Host aws
     User      ubuntu
     #User      ec2-user
     #User      admin
-    IdentitiesOnly yes
     IdentityFile ~/.ssh/my.key
     PreferredAuthentications publickey
     StrictHostKeyChecking  no
@@ -15,6 +14,9 @@ Host aws
     IdentitiesOnly         yes
     AddressFamily          inet
     #ProxyCommand  connect-proxy -a none -S proxy.com:1080  %h %p
+    #ForwardAgent           yes
+    #ForwardX11             yes
+    #AddKeysToAgent         yes
 
 Host tunel
     Hostname  w.x.y.z
@@ -22,7 +24,6 @@ Host tunel
     LocalForward 10000 localhost:10000
     SessionType  none
     RequestTTY   no
-    IdentitiesOnly yes
     IdentityFile ~/.ssh/my.key
     PreferredAuthentications publickey
     StrictHostKeyChecking  no
@@ -32,3 +33,6 @@ Host tunel
     IdentitiesOnly         yes
     AddressFamily          inet
     #ProxyCommand  connect-proxy -a none -S proxy.com:1080  %h %p
+    #ForwardAgent           yes
+    #ForwardX11             yes
+    #AddKeysToAgent         yes
