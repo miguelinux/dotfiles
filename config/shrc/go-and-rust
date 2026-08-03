@@ -4,11 +4,20 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 GOPATH=${HOME}/go
-PATH=${PATH}:${GOPATH}/bin:${HOME}/.cargo/bin
 
 if [ -f "$HOME/.cargo/env" ]
 then
     source "$HOME/.cargo/env"
+fi
+
+if test -d ${GOPATH}/bin
+then
+    PATH=${PATH}:${GOPATH}/bin
+fi
+
+if test -d ${HOME}/.cargo/bin
+then
+    PATH=${PATH}:${HOME}/.cargo/bin
 fi
 
 export GOPATH PATH

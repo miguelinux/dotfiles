@@ -31,6 +31,12 @@ then
     PATH=$HOME/.local/share/qgenie-cli/opencode-cli/bin:$PATH
 fi
 
+# Added by QGenie for Claude Code
+if test -d $HOME/.local/share/qgenie-cli/claude-code/bin
+then
+    PATH=$HOME/.local/share/qgenie-cli/claude-code/bin:$PATH
+fi
+
 if [ "x${DISPLAY}" != "x" ]; then
     EDITOR="gvim -f"
     VISUAL="gvim -f"
