@@ -6,6 +6,7 @@ Host github.com
     IdentitiesOnly yes
     PreferredAuthentications publickey
     #ProxyCommand  connect-proxy -a none -S proxy.com:1080  %h %p
+    #AddKeysToAgent         yes
 
 Host gitlab.com
     Hostname gitlab.com
@@ -13,6 +14,7 @@ Host gitlab.com
     IdentitiesOnly yes
     PreferredAuthentications publickey
     #ProxyCommand  connect-proxy -a none -S proxy.com:1080  %h %p
+    #AddKeysToAgent         yes
 
 Host salsa.debian.org
     Hostname salsa.debian.org
@@ -20,4 +22,5 @@ Host salsa.debian.org
     IdentitiesOnly yes
     PreferredAuthentications publickey
     #ProxyCommand  connect-proxy -a none -S proxy.com:1080  %h %p
+    #AddKeysToAgent         yes
 

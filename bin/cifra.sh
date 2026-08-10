@@ -10,3 +10,8 @@ then
 else
     gpg --symmetric --cipher-algo AES256 --batch --passphrase-file $@
 fi
+
+#TODO
+#$ echo -n hunter2 | systemd-creds --user encrypt - ciphertext.cred
+#$ systemd-creds --user decrypt ciphertext.cred
+#hunter2
