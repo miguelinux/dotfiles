@@ -51,6 +51,11 @@ gpg --keyserver keyserver.ubuntu.com --send-key 90A808023328BD4E58143AC5E6CB7939
 * gpg --import chrisroos-secret-gpg.key
 * gpg --import-ownertrust chrisroos-ownertrust-gpg.txt
 
+# Verify your Password
+
+* gpg --dry-run --passwd YOUR_KEY_ID
+* echo "test" | gpg --clear-sign
+
 # Change expiration date
 
 To change the expiration date of a GPG subkey,
