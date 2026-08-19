@@ -46,3 +46,5 @@
 #	insteadOf = https://anonscm.debian.org/git/
 #[url "git@salsa.debian.org:"]
 #	insteadOf = https://salsa.debian.org/
+[gitreview]
+	remote = origin
