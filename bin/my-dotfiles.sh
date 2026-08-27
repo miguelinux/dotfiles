@@ -25,7 +25,7 @@ my_update()
         git -C "${repo_path}" pull --quiet
         cd "${repo_path}"
         bash setup.sh
-        cd -
+        cd $OLDPWD
     done
 }
 
