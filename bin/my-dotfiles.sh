@@ -18,7 +18,7 @@ my_update()
         git -C "${repo_path}" fetch --all --quiet
 
         #if ! git -C "${repo_path}" diff-index --cached --quiet HEAD --
-        if test -n "$(git -C ${repo_path} status --porcelain)"
+        if test -n "$(git -C "${repo_path}" status --porcelain)"
         then
             echo "Please commit and push: ${repo_path}"
             continue
@@ -27,7 +27,14 @@ my_update()
         # Count how many commits local is ahead of origin
         # HEAD represents your local branch,
         # @{u} represents its remote upstream branch
-        ahead="$(git -C "${repo_path}" rev-list --count @{u}..HEAD 2>/dev/null)"
+        ahead="$(git  -C "${repo_path}" rev-list --count "@{u}"..HEAD 2>/dev/null)"
+        behind="$(git -C "${repo_path}" rev-list --count HEAD.."@{u}" 2>/dev/null)"
+
+        if test "0" != "$ahead" -a "0" != "$behind"
+        then
+            echo "Please review ($ahead ahead, $behind behind): ${repo_path}"
+            continue
+        fi
 
         if test "0" != "$ahead"
         then
@@ -38,7 +45,7 @@ my_update()
 
         cd "${repo_path}"
         bash setup.sh
-        cd $OLDPWD
+        cd "$OLDPWD"
     done
 }
 
