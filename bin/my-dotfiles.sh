@@ -10,19 +10,32 @@ DFD="${XDG_CONFIG_HOME:-$HOME/.config}"/my-dotfiles.d
 
 my_update()
 {
-
     for ref in "$DFD"/*
     do
         repo_path_full="$(realpath "$ref")"
         repo_path="${repo_path_full%/*/*/*}"
+
+        git -C "${repo_path}" fetch --all --quiet
+
         #if ! git -C "${repo_path}" diff-index --cached --quiet HEAD --
         if test -n "$(git -C ${repo_path} status --porcelain)"
         then
             echo "Please commit and push: ${repo_path}"
-            git -C "${repo_path}" fetch --all --quiet
             continue
         fi
-        git -C "${repo_path}" pull --quiet
+
+        # Count how many commits local is ahead of origin
+        # HEAD represents your local branch,
+        # @{u} represents its remote upstream branch
+        ahead="$(git -C "${repo_path}" rev-list --count @{u}..HEAD 2>/dev/null)"
+
+        if test "0" != "$ahead"
+        then
+            git -C "${repo_path}" push --quiet
+        else
+            git -C "${repo_path}" pull --quiet
+        fi
+
         cd "${repo_path}"
         bash setup.sh
         cd $OLDPWD
