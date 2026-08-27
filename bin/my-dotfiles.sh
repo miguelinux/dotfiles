@@ -5,19 +5,28 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-function update()
+# DotFiles Directory
+DFD="${XDG_CONFIG_HOME:-$HOME/.config}"/my-dotfiles.d
+
+my_update()
 {
-    repo_path_full=$(realpath $0)
-    repo_path=${repo_path_full%/*/*}
-    git -C "$repo_path" pull
-    #if ! git -C "${repo_path}" diff-index --cached --quiet HEAD --
-    if [ -n "$(git -C ${repo_path} status --porcelain)" ]
-    then
-        git -C "${repo_path}" add --all
-        git -C "${repo_path}" commit -m "auto-update"
-        git -C "${repo_path}" push
-    fi
-    bash "${repo_path}"/setup.sh
+
+    for ref in "$DFD"/*
+    do
+        repo_path_full="$(realpath "$ref")"
+        repo_path="${repo_path_full%/*/*/*}"
+        #if ! git -C "${repo_path}" diff-index --cached --quiet HEAD --
+        if test -n "$(git -C ${repo_path} status --porcelain)"
+        then
+            echo "Please commit and push: ${repo_path}"
+            git -C "${repo_path}" fetch --all --quiet
+            continue
+        fi
+        git -C "${repo_path}" pull --quiet
+        cd "${repo_path}"
+        bash setup.sh
+        cd -
+    done
 }
 
 function myhelp()
@@ -26,7 +35,7 @@ function myhelp()
     echo ""
     echo "COMMANDS"
     echo ""
-    echo "update         updates the repo"
+    echo "up|update         updates the repo"
     echo ""
     exit
 }
@@ -45,8 +54,8 @@ do
         -e|--error)
             set -e
         ;;
-        update)
-            update
+        up|update)
+            my_update
         ;;
         -h|--help)
             myhelp
@@ -57,4 +66,3 @@ do
     esac
     shift
 done
-

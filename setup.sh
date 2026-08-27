@@ -29,6 +29,7 @@ find -name \*~ -exec rm {} \;
 mkdir -m 700 -p ${HOME}/.cache/mutt
 mkdir -m 700 -p ${HOME}/.config/git
 mkdir -m 700 -p ${HOME}/.config/i3
+mkdir -m 700 -p ${HOME}/.config/my-dotfiles.d
 mkdir -m 700 -p ${HOME}/.config/shrc
 mkdir -m 700 -p ${HOME}/.config/systemd/user
 mkdir -m 700 -p ${HOME}/.config/todo
@@ -36,6 +37,7 @@ mkdir -m 700 -p ${HOME}/.config/todo/actions
 mkdir -m 700 -p ${HOME}/.fluxbox
 mkdir -m 700 -p ${HOME}/.local/bin
 mkdir -m 700 -p ${HOME}/.mutt
+mkdir -m 700 -p ${HOME}/.ssh
 mkdir -m 700 -p ${HOME}/.vim/autoload
 mkdir -m 700 -p ${HOME}/.vim/colors
 mkdir -m 700 -p ${HOME}/.vim/config
@@ -43,14 +45,14 @@ mkdir -m 700 -p ${HOME}/.vim/pack
 mkdir -m 700 -p ${HOME}/.vim/plugged
 mkdir -m 700 -p ${HOME}/.vim/spell
 mkdir -m 700 -p ${HOME}/.vim/templates
-mkdir -m 700 -p ${HOME}/.ssh
 
-my-stow -t ${HOME}/.config config
-my-stow -t ${HOME}/.mutt mutt
-my-stow -t ${HOME}/.vim vim
-my-stow -t ${HOME}/.fluxbox fluxbox
 my-stow -t ${HOME} tmux
+my-stow -t ${HOME}/.config config
+my-stow -t ${HOME}/.fluxbox fluxbox
 my-stow -t ${HOME}/.local/bin bin
+my-stow -t ${HOME}/.mutt mutt
+my-stow -t ${HOME}/.ssh ssh
+my-stow -t ${HOME}/.vim vim
 
 if [ -f "${HOME}/.bashrc" ]
 then
@@ -62,4 +64,3 @@ then
 fi
 
 my-stow -t ${HOME} varios
-my-stow -t ${HOME}/.ssh ssh
