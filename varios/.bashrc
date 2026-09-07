@@ -9,16 +9,6 @@ case $- in
       *) return;;
 esac
 
-# Use global profile when available
-if [ -f /usr/share/defaults/etc/profile ]; then
-	source /usr/share/defaults/etc/profile
-fi
-
-# allow admin overrides
-if [ -f /etc/profile ]; then
-	source /etc/profile
-fi
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	source /etc/bashrc
@@ -73,11 +63,10 @@ fi
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			source "$rc"
-		fi
-	done
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      source "$rc"
+    fi
+  done
+  unset rc
 fi
-
-unset rc

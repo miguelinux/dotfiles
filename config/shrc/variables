@@ -3,9 +3,10 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-PATH=${PATH}:${HOME}/.local/bin
-
 BAT_PAGER=""
+
+EDITOR="vim "
+VISUAL="vim "
 
 #if test -d /usr/lib/jvm/java-1.8.0-openjdk
 #then
@@ -19,26 +20,23 @@ BAT_PAGER=""
 #    export PYCHARM_JDK
 #fi
 
-if [ -d /home/miguel/.opencode/bin ]
-then
-  # opencode
-  PATH=/home/miguel/.opencode/bin:$PATH
-fi
+new_dirs_path="
+    ${HOME}/.local/bin
+    /home/miguel/.opencode/bin
+    $HOME/.local/share/qgenie-cli/opencode-cli/bin
+    $HOME/.local/share/qgenie-cli/claude-code/bin
+    "
 
-# Added by QGenie for OpenCode
-if test -d $HOME/.local/share/qgenie-cli/opencode-cli/bin
-then
-    PATH=$HOME/.local/share/qgenie-cli/opencode-cli/bin:$PATH
-fi
-
-# Added by QGenie for Claude Code
-if test -d $HOME/.local/share/qgenie-cli/claude-code/bin
-then
-    PATH=$HOME/.local/share/qgenie-cli/claude-code/bin:$PATH
-fi
-
-EDITOR="vim "
-VISUAL="vim "
+for d in $new_dirs_path
+do
+    if test -d "$d"
+    then
+        if echo "$PATH" | grep --quiet --invert-match "$d"
+        then
+            PATH="$PATH":"$d"
+        fi
+    fi
+done
 
 if [ "x${DISPLAY}" != "x" -a ! -f $HOME/.cache/usevim ]; then
     EDITOR="gvim -f"

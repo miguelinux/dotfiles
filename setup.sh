@@ -63,4 +63,13 @@ then
     fi
 fi
 
+if [ -f "${HOME}/.bash_profile" ]
+then
+    BPF=$(realpath ${HOME}/.bash_profile)
+    if [ "${HOME}/.bash_profile" = "${BPF}" ]
+    then
+        mv ${HOME}/.bash_profile ${HOME}/.bash_profile.dotfiles_backup
+    fi
+fi
+
 my-stow -t ${HOME} varios

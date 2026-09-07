@@ -3,7 +3,6 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-
 if [ -d "$HOME/.pyenv" ]
 then
     export PYENV_ROOT="$HOME/.pyenv"
