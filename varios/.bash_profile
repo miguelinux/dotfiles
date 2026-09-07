@@ -18,6 +18,10 @@ if [ -f /etc/profile ]; then
 	source /etc/profile
 fi
 
-if [ -f $HOME/.bashrc ]; then
-	source $HOME/.bashrc
+if [ -f "$HOME/.profile" ]; then
+	source "$HOME/.profile"
+fi
+
+if [ -f "$HOME/.bashrc" -a -z "$MY_BASHRC" ]; then
+	source "$HOME/.bashrc"
 fi

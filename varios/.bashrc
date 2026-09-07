@@ -70,3 +70,6 @@ if [ -d ~/.bashrc.d ]; then
   done
   unset rc
 fi
+
+MY_BASHRC=1
+export MY_BASHRC
