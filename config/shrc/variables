@@ -25,6 +25,7 @@ new_dirs_path="
     ${HOME}/.opencode/bin
     ${HOME}/.local/share/qgenie-cli/opencode-cli/bin
     ${HOME}/.local/share/qgenie-cli/claude-code/bin
+    ${HOME}/.local/share/qgenie-cli/pi-cli/bin
     "
 
 for d in $new_dirs_path
