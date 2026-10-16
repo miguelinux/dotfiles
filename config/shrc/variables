@@ -22,9 +22,9 @@ VISUAL="vim "
 
 new_dirs_path="
     ${HOME}/.local/bin
-    /home/miguel/.opencode/bin
-    $HOME/.local/share/qgenie-cli/opencode-cli/bin
-    $HOME/.local/share/qgenie-cli/claude-code/bin
+    ${HOME}/.opencode/bin
+    ${HOME}/.local/share/qgenie-cli/opencode-cli/bin
+    ${HOME}/.local/share/qgenie-cli/claude-code/bin
     "
 
 for d in $new_dirs_path
